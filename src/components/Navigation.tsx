@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
 
 const navigationItems = [
@@ -59,17 +59,17 @@ export default function Navigation() {
   const pathname = usePathname();
 
   // Helper function to check if a path is active
-  const isActivePath = (href: string) => {
+  const isActivePath = useCallback((href: string) => {
     if (href === '/' && pathname === '/') return true;
     if (href !== '/' && pathname.startsWith(href)) return true;
     return false;
-  };
+  }, [pathname]);
 
   // Helper function to check if a section should be expanded based on current path
-  const shouldExpandSection = (item: any) => {
+  const shouldExpandSection = useCallback((item: { href: string; children?: { href: string; title: string }[] }) => {
     if (!item.children) return false;
-    return item.children.some((child: any) => isActivePath(child.href)) || isActivePath(item.href);
-  };
+    return item.children.some((child) => isActivePath(child.href)) || isActivePath(item.href);
+  }, [isActivePath]);
 
   // Auto-expand sections based on current path
   useEffect(() => {
@@ -80,7 +80,7 @@ export default function Navigation() {
       }
     });
     setExpandedSections(sectionsToExpand);
-  }, [pathname]);
+  }, [pathname, shouldExpandSection]);
 
   const toggleSection = (title: string) => {
     setExpandedSections(prev =>
@@ -185,7 +185,7 @@ export default function Navigation() {
           <ul className="space-y-1">
             {navigationItems.map((item) => {
               const isActive = isActivePath(item.href);
-              const hasActiveChild = item.children?.some((child: any) => isActivePath(child.href));
+              const hasActiveChild = item.children?.some((child) => isActivePath(child.href));
               const isExpanded = expandedSections.includes(item.title);
 
               return (
@@ -240,7 +240,7 @@ export default function Navigation() {
 
                   {item.children && isExpanded && (
                     <ul className="mt-2 ml-6 space-y-1">
-                      {item.children.map((child: any) => {
+                      {item.children.map((child) => {
                         const isChildActive = isActivePath(child.href);
                         return (
                           <li key={child.href}>

@@ -1,4 +1,5 @@
 import DocsLayout from '@/components/DocsLayout';
+import Image from 'next/image';
 
 export default function GettingStarted() {
   return (
@@ -21,11 +22,11 @@ export default function GettingStarted() {
           Overview
         </h2>
         <p className="text-gray-700 dark:text-gray-300 mb-6">
-          Blink, as the name suggests, is designed for lightning-fast restaurant operations. It's an all-in-one restaurant management system that seamlessly integrates POS, kitchen operations, inventory management, and customer service. With its intuitive interface and real-time synchronization, Blink helps streamline your restaurant's workflow from order taking to payment processing. The system is built with modern web technologies, ensuring responsive performance across all devices and providing a smooth experience for both staff and customers.
+          Blink, as the name suggests, is designed for lightning-fast restaurant operations. It&apos;s an all-in-one restaurant management system that seamlessly integrates POS, kitchen operations, inventory management, and customer service. With its intuitive interface and real-time synchronization, Blink helps streamline your restaurant&apos;s workflow from order taking to payment processing. The system is built with modern web technologies, ensuring responsive performance across all devices and providing a smooth experience for both staff and customers.
         </p>
         <div className="bg-gray-100 dark:bg-gray-800 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center mb-8">
           <p className="text-gray-500 dark:text-gray-400">
-            <img src="/screenshots/overview1.png" alt="Blink Overview" className="w-full h-auto rounded-lg mb-8" />
+            <Image src="/screenshots/overview1.png" alt="Blink Overview" width={800} height={400} className="w-full h-auto rounded-lg mb-8" />
           </p>
         </div>
 
@@ -73,16 +74,16 @@ export default function GettingStarted() {
               Step 1: Account Creation
             </h3>
             <p className="text-blue-800 dark:text-blue-200 mb-2">
-              Create a new account by clicking on the "Sign Up" button in the top right corner of the screen.
+              Create a new account by clicking on the &ldquo;Sign Up&rdquo; button in the top right corner of the screen.
             </p>
             <ul className="list-disc list-inside text-blue-700 dark:text-blue-300 space-y-1">
-              <li>Click on the "Sign Up" button in the top right corner of the screen.</li>
-              <li>Fill in the required information and click on the "Next branch details" button.</li>
+              <li>Click on the &ldquo;Sign Up&rdquo; button in the top right corner of the screen.</li>
+              <li>Fill in the required information and click on the &ldquo;Next branch details&rdquo; button.</li>
               <li>You will be redirected to the setting up branch details.</li>
             </ul>
             <div className="bg-gray-100 dark:bg-gray-800 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center mb-8">
           <p className="text-gray-500 dark:text-gray-400">
-            <img src="/screenshots/signup.png" alt="Sign Up" className="w-full h-auto rounded-lg mb-8" />
+            <Image src="/screenshots/signup.png" alt="Sign Up" width={800} height={400} className="w-full h-auto rounded-lg mb-8" />
           </p>
         </div>
           </div>
@@ -96,11 +97,11 @@ export default function GettingStarted() {
             </p>
             <ul className="list-disc list-inside text-blue-700 dark:text-blue-300 space-y-1">
               <li>once you are redirected to the setting up branch details, fill in the required information</li>
-              <li>click on the "Sign Up" button.</li>
+              <li>click on the &ldquo;Sign Up&rdquo; button.</li>
             </ul>
             <div className="bg-gray-100 dark:bg-gray-800 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center mb-8">
           <p className="text-gray-500 dark:text-gray-400">
-            <img src="/screenshots/branch.png" alt="Branch" className="w-full h-auto rounded-lg mb-8" />
+            <Image src="/screenshots/branch.png" alt="Branch" width={800} height={400} className="w-full h-auto rounded-lg mb-8" />
           </p>
         </div>
           </div>
@@ -118,26 +119,10 @@ export default function GettingStarted() {
           </div>
           <div className="bg-gray-100 dark:bg-gray-800 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center mb-8">
           <p className="text-gray-500 dark:text-gray-400">
-            <img src="/screenshots/signup1.png" alt="Branch" className="w-full h-auto rounded-lg mb-8" />
+            <Image src="/screenshots/signup1.png" alt="Branch" width={800} height={400} className="w-full h-auto rounded-lg mb-8" />
           </p>
         </div>
         </div>
-
-        {/* ADD CODE EXAMPLE HERE */}
-        <div className="bg-gray-900 dark:bg-gray-800 rounded-lg p-4 mb-8">
-          <h3 className="text-lg font-semibold text-white mb-2">
-            Initial Configuration Example
-          </h3>
-          <p className="text-gray-400 text-sm mb-2">
-            {/* ADD CODE EXAMPLE HERE */}
-          </p>
-          <pre className="text-green-400 text-sm">
-            <code>
-{``}
-            </code>
-          </pre>
-        </div>
-
         <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
           Troubleshooting Common Issues
         </h2>
