@@ -1,4 +1,15 @@
+/**
+ * Copyright (c) 2024 Blink - Venue Store ERP System
+ *
+ * Blink is a comprehensive venue store ERP system that provides
+ * almost everything a venue needs for efficient operations.
+ *
+ * This software and its documentation are proprietary to Blink.
+ * All rights reserved.
+ */
+
 import DocsLayout from '@/components/DocsLayout';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function AdminGuide() {
@@ -14,15 +25,13 @@ export default function AdminGuide() {
             Admin Dashboard Overview
           </h2>
           <p className="text-indigo-800 dark:text-indigo-200">
-            [ADD YOUR TEXT HERE]
+            Welcome to the admin guide for the restaurant management system. This guide will help you navigate the admin dashboard and understand the different sections and features.
           </p>
         </div>
 
-        {/* ADD SCREENSHOT HERE */}
         <div className="bg-gray-100 dark:bg-gray-800 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center mb-8">
           <p className="text-gray-500 dark:text-gray-400">
-            {/* ADD SCREENSHOT HERE */}
-            Add admin dashboard screenshot here
+            <Image src="/screenshots/dashboard.png" alt="Admin Dashboard" width={800} height={400} className="w-full h-auto rounded-lg mb-8" />
           </p>
         </div>
 
@@ -32,13 +41,19 @@ export default function AdminGuide() {
         
         <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 mb-8">
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-            Main Menu Items
+            Navigation Bar
           </h3>
           <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-            <li>• [ADD YOUR TEXT HERE]</li>
-            <li>• [ADD YOUR TEXT HERE]</li>
-            <li>• [ADD YOUR TEXT HERE]</li>
-            <li>• [ADD YOUR TEXT HERE]</li>
+            <li>• Dashboard</li>
+            <li>• Menu Management</li>
+            <li>• Table Management</li>
+            <li>• waiter requests</li>
+            <li>• Orders</li>
+            <li>• POS</li>
+            <li>• Inventory(Curretly under development)</li>
+            <li>• Payment Reports</li>
+            <li>• Reports</li>
+            <li>• Settings</li>
           </ul>
         </div>
 
@@ -47,9 +62,9 @@ export default function AdminGuide() {
         </h2>
         
         <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-8">
-          <li>• [ADD YOUR TEXT HERE]</li>
-          <li>• [ADD YOUR TEXT HERE]</li>
-          <li>• [ADD YOUR TEXT HERE]</li>
+          <li>• View orders</li>
+          <li>• View waiter requests</li>
+          <li>• View reservations</li>
         </ul>
 
         <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">

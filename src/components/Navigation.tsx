@@ -1,6 +1,17 @@
+/**
+ * Copyright (c) 2024 Blink - Venue Store ERP System
+ *
+ * Blink is a comprehensive venue store ERP system that provides
+ * almost everything a venue needs for efficient operations.
+ *
+ * This software and its documentation are proprietary to Blink.
+ * All rights reserved.
+ */
+
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
 
@@ -98,7 +109,6 @@ export default function Navigation() {
     setIsMobileMenuOpen(false);
   };
 
-  // Close mobile menu on window resize and handle escape key
   useEffect(() => {
     const handleResize = () => {
       if (typeof window !== 'undefined' && window.innerWidth >= 1024) {
@@ -127,7 +137,6 @@ export default function Navigation() {
 
   return (
     <>
-      {/* Mobile menu button */}
       <button
         onClick={toggleMobileMenu}
         className="lg:hidden fixed top-4 left-4 z-50 p-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-lg transition-colors duration-200"
@@ -158,7 +167,6 @@ export default function Navigation() {
         </svg>
       </button>
 
-      {/* Navigation sidebar */}
       <nav
         className={`fixed top-0 left-0 h-full w-80 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-700 transform transition-transform duration-300 ease-in-out z-40 overflow-y-auto shadow-lg lg:shadow-none ${
           isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
@@ -174,11 +182,25 @@ export default function Navigation() {
             }`}
             onClick={closeMobileMenu}
           >
-            <h1 className="text-xl font-bold text-gray-900 dark:text-white">
-              Restaurant Management
-            </h1>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              Documentation
+            <div className="flex items-center space-x-3 mb-2">
+              <Image
+                src="/logo1.png"
+                alt="Blink Logo"
+                width={32}
+                height={32}
+                className="rounded"
+              />
+              <div>
+                <h1 className="text-xl font-bold text-gray-900 dark:text-white">
+                  Blink
+                </h1>
+                <p className="text-xs text-gray-500 dark:text-gray-400">
+                  Venue Store ERP
+                </p>
+              </div>
+            </div>
+            <p className="text-sm text-gray-600 dark:text-gray-400 ml-11">
+              Restaurant Management Documentation
             </p>
           </Link>
 
@@ -200,7 +222,6 @@ export default function Navigation() {
                             : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white'
                         }`}
                         onClick={() => {
-                          // Don't close menu if this is a parent item with children
                           if (!item.children) {
                             closeMobileMenu();
                           }
@@ -264,10 +285,21 @@ export default function Navigation() {
               );
             })}
           </ul>
+
+          {/* Copyright Footer */}
+          <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+            <div className="text-center">
+              <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">
+                © 2024 Blink - Venue Store ERP
+              </p>
+              <p className="text-xs text-gray-400 dark:text-gray-500">
+                All rights reserved
+              </p>
+            </div>
+          </div>
         </div>
       </nav>
 
-      {/* Mobile overlay */}
       {isMobileMenuOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden transition-opacity duration-300"

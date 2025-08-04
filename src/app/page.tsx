@@ -1,19 +1,45 @@
+/**
+ * Copyright (c) 2024 Blink - Venue Store ERP System
+ *
+ * Blink is a comprehensive venue store ERP system that provides
+ * almost everything a venue needs for efficient operations.
+ *
+ * This software and its documentation are proprietary to Blink.
+ * All rights reserved.
+ */
+
 import DocsLayout from '@/components/DocsLayout';
+import Image from 'next/image';
 
 export default function Home() {
   return (
     <DocsLayout>
       <div className="prose prose-gray dark:prose-invert max-w-none">
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
-          Restaurant Management System Documentation
-        </h1>
+        <div className="flex items-center space-x-4 mb-6">
+          <Image
+            src="/logo1.png"
+            alt="Blink Logo"
+            width={64}
+            height={64}
+            className="rounded-lg shadow-sm"
+          />
+          <div>
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
+              Blink Restaurant Management
+            </h1>
+            <p className="text-lg text-gray-600 dark:text-gray-400">
+              Venue Store ERP System Documentation
+            </p>
+          </div>
+        </div>
 
         <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-8">
           <h2 className="text-xl font-semibold text-blue-900 dark:text-blue-100 mb-2">
-            Welcome to the Documentation
+            Welcome to Blink Documentation
           </h2>
           <p className="text-blue-800 dark:text-blue-200">
-            This comprehensive guide will help you understand and use all features of the Restaurant Management System.
+            Blink is a comprehensive venue store ERP system that provides almost everything a venue needs for efficient operations.
+            This documentation will guide you through all features of the Restaurant Management module.
             Navigate through the sections using the sidebar menu.
           </p>
         </div>
