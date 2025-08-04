@@ -19,6 +19,14 @@ export interface StepContent {
   commonGroups?: string[];
   tips?: string[];
   examples?: string[];
+  roleTemplates?: string[];
+  commonChanges?: string[];
+  workflow?: string[];
+  notifications?: string[];
+  accessActions?: string[];
+  securityFeatures?: string[];
+  roleUpdates?: string[];
+  staffUpdates?: string[];
 }
 
 export interface Screenshot {

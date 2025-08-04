@@ -21,22 +21,19 @@ const navigationItems = [
     href: '/getting-started',
   },
   {
-    title: '02. User Roles & Permissions',
-    href: '/user-roles',
-  },
-  {
-    title: '03. Admin Guide',
+    title: '02. Admin Guide',
     href: '/admin',
     children: [
       { title: 'Basic Information', href: '/admin/basic-information' },
       { title: 'Menu Management', href: '/admin/menu-management' },
       { title: 'Staff Management', href: '/admin/staff-management' },
+      { title: 'Staff Roles & Permissions', href: '/admin/staff-roles' },
       { title: 'Payment Configuration', href: '/admin/payment-configuration' },
       { title: 'Reports & Analytics', href: '/admin/reports-analytics' },
     ],
   },
   {
-    title: '04. Staff Guide',
+    title: '03. Staff Guide',
     href: '/staff',
     children: [
       { title: 'POS Operations', href: '/staff/pos-operations' },
@@ -46,7 +43,7 @@ const navigationItems = [
     ],
   },
   {
-    title: '05. Kitchen Guide',
+    title: '04. Kitchen Guide',
     href: '/kitchen',
     children: [
       { title: 'Kitchen Display System (KDS)', href: '/kitchen/kds' },
@@ -54,7 +51,7 @@ const navigationItems = [
     ],
   },
   {
-    title: '06. Customer Guide',
+    title: '05. Customer Guide',
     href: '/customer',
     children: [
       { title: 'Online Ordering', href: '/customer/online-ordering' },

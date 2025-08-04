@@ -11,5 +11,5 @@
 import LoadingSpinner from '@/components/landing/LoadingSpinner';
 
 export default function Loading() {
-  return <LoadingSpinner delay={1500} />;
+  return <LoadingSpinner delay={2500} />;
 }

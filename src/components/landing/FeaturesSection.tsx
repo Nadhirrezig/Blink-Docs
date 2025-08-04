@@ -63,7 +63,7 @@ const features = [
     ),
     title: "User Roles & Security",
     description: "Comprehensive role-based access control, permissions management, and security protocols.",
-    link: "/user-roles",
+    link: "/admin/staff-roles",
     color: "indigo"
   },
   {

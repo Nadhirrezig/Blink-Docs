@@ -10,7 +10,7 @@
 
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import Image from 'next/image';
 
 interface LoadingSpinnerProps {
@@ -20,6 +20,15 @@ interface LoadingSpinnerProps {
 
 export default function LoadingSpinner({ onComplete, delay = 2000 }: LoadingSpinnerProps) {
   const [progress, setProgress] = useState(0);
+  const [loadingMessage, setLoadingMessage] = useState('Initializing Blink...');
+
+  const loadingMessages = useMemo(() => [
+    'Initializing Blink...',
+    'Loading restaurant modules...',
+    'Setting up your dashboard...',
+    'Preparing your experience...',
+    'Almost ready!'
+  ], []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -31,12 +40,17 @@ export default function LoadingSpinner({ onComplete, delay = 2000 }: LoadingSpin
           }
           return 100;
         }
+
+        // Update loading message based on progress
+        const messageIndex = Math.floor((prev / 100) * (loadingMessages.length - 1));
+        setLoadingMessage(loadingMessages[messageIndex]);
+
         return prev + 2;
       });
     }, delay / 50);
 
     return () => clearInterval(interval);
-  }, [delay, onComplete]);
+  }, [delay, onComplete, loadingMessages]);
 
   return (
     <div className="fixed inset-0 bg-white dark:bg-gray-900 flex items-center justify-center z-50">
@@ -77,8 +91,8 @@ export default function LoadingSpinner({ onComplete, delay = 2000 }: LoadingSpin
         </div>
         
         {/* Loading Text */}
-        <p className="text-sm text-gray-500 dark:text-gray-400">
-          Loading your restaurant management platform...
+        <p className="text-sm text-gray-500 dark:text-gray-400 min-h-[20px] transition-all duration-300">
+          {loadingMessage}
         </p>
         
         {/* Progress Percentage */}
