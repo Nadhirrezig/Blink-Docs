@@ -13,7 +13,7 @@ export default function UserRoles() {
             Role Overview
           </h2>
           <p className="text-purple-800 dark:text-purple-200">
-            [ADD YOUR TEXT HERE]
+            As an admin, you have full control over all users and their permissions. You can assign specific permissions to each user based on their role and responsibilities within the buisness. By default, the admin has access to all features and settings, and can tailor access levels for every user to ensure they have the appropriate permissions for the tasks they perform.
           </p>
         </div>
 
