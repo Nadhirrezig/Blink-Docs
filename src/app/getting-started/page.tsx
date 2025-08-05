@@ -1,12 +1,14 @@
 import DocsLayout from '@/components/DocsLayout';
 import Image from 'next/image';
+import { Rocket, Bug, Mail } from 'lucide-react';
 
 export default function GettingStarted() {
   return (
     <DocsLayout>
       <div className="prose prose-gray dark:prose-invert max-w-none">
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
-          🚀 Getting Started
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-3">
+          <Rocket className="w-10 h-10 text-green-600" />
+          Getting Started
         </h1>
         
         <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-6 mb-8">
@@ -166,9 +168,10 @@ export default function GettingStarted() {
               <div className="mt-3">
                 <a
                   href="mailto:support@blink.com?subject=Bug%20Report"
-                  className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-2 rounded-lg shadow transition-colors duration-200"
+                  className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-2 rounded-lg shadow transition-colors duration-200"
                 >
-                  🐞 Report a Bug
+                  <Bug className="w-4 h-4" />
+                  Report a Bug
                 </a>
               </div>
             </div>
@@ -203,9 +206,10 @@ export default function GettingStarted() {
             <div className="mt-4">
               <a
                 href="mailto:support@blink.com?subject=Support%20Request"
-                className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-2 rounded-lg shadow transition-colors duration-200"
+                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-2 rounded-lg shadow transition-colors duration-200"
               >
-                ✉️ Email Support
+                <Mail className="w-4 h-4" />
+                Email Support
               </a>
             </div>
           </div>

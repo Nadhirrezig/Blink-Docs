@@ -11,13 +11,15 @@
 import DocsLayout from '@/components/DocsLayout';
 import Image from 'next/image';
 import Link from 'next/link';
+import { UserCheck } from 'lucide-react';
 
 export default function AdminGuide() {
   return (
     <DocsLayout>
       <div className="prose prose-gray dark:prose-invert max-w-none">
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
-          👨‍💼 Admin Guide
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-3">
+          <UserCheck className="w-10 h-10 text-blue-600" />
+          Admin Guide
         </h1>
         
         <div className="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-lg p-6 mb-8">

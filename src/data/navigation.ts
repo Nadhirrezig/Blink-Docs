@@ -33,13 +33,13 @@ export const navigationStructure: NavigationItem[] = [
     ],
   },
   {
-    title: '03. Staff Guide',
-    href: '/staff',
+    title: '03. Operations Guide',
+    href: '/operations',
     children: [
-      { title: 'POS Operations', href: '/staff/pos-operations' },
-      { title: 'Payment Processing', href: '/staff/payment-processing' },
-      { title: 'Table Management', href: '/staff/table-management' },
-      { title: 'Customer Service', href: '/staff/customer-service' },
+      { title: 'POS Operations', href: '/operations/pos-operations' },
+      { title: 'Payment Processing', href: '/operations/payment-processing' },
+      { title: 'Table Management', href: '/operations/table-management' },
+      { title: 'Customer Service', href: '/operations/customer-service' },
     ],
   },
   {
@@ -47,7 +47,6 @@ export const navigationStructure: NavigationItem[] = [
     href: '/kitchen',
     children: [
       { title: 'Kitchen Display System (KDS)', href: '/kitchen/kds' },
-      { title: 'Recipe Management', href: '/kitchen/recipe-management' },
     ],
   },
   {

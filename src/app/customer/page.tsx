@@ -1,12 +1,14 @@
 import DocsLayout from '@/components/DocsLayout';
 import Link from 'next/link';
+import { Users } from 'lucide-react';
 
 export default function CustomerGuide() {
   return (
     <DocsLayout>
       <div className="prose prose-gray dark:prose-invert max-w-none">
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
-          👤 Customer Guide
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-3">
+          <Users className="w-10 h-10 text-teal-600" />
+          Customer Guide
         </h1>
         
         <div className="bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 rounded-lg p-6 mb-8">
