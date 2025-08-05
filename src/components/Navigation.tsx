@@ -15,6 +15,7 @@ import Image from 'next/image';
 import { useState, useEffect, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
 import { navigationStructure, NavigationItem } from '@/data/navigation';
+import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -147,6 +148,34 @@ export default function Navigation() {
             </div>
           </Link>
 
+          {/* Google Translate hobi hobi */}
+          <div className="mb-6 pb-4 border-b border-gray-200 dark:border-gray-700">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                Translate
+              </span>
+              <svg
+                className="w-4 h-4 text-gray-500 dark:text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
+                />
+              </svg>
+            </div>
+            <div className="mb-2">
+              <span className="block text-xs text-yellow-700 dark:text-yellow-400 bg-yellow-50 dark:bg-yellow-900/30 rounded px-2 py-1">
+                Automatic translation may contain bugs or errors.
+              </span>
+            </div>
+            <LanguageSwitcher className="w-full" />
+          </div>
+
           <div className="space-y-2">
             {navigationStructure.map((item) => (
               <div key={item.href}>
@@ -215,7 +244,6 @@ export default function Navigation() {
         </div>
       </nav>
 
-      {/* Overlay for mobile */}
       {isMobileMenuOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden"
