@@ -142,7 +142,7 @@ export default function TableManagement() {
                 </div>
                 <div className="flex items-center space-x-2 text-orange-800 dark:text-orange-200">
                   <span className="w-1.5 h-1.5 bg-orange-500 rounded-full"></span>
-                  <span>Add clear "Scan to Order" instructions</span>
+                  <span>Add clear &quot;Scan to Order&quot; instructions</span>
                 </div>
               </div>
             </div>

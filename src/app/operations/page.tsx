@@ -10,7 +10,7 @@
 
 import DocsLayout from '@/components/DocsLayout';
 import Link from 'next/link';
-import { Store, Monitor, CreditCard, Users, ChefHat, BarChart3, ArrowRight, CheckCircle, Zap, BookOpen, Phone, ClipboardList } from 'lucide-react';
+import { Store, Monitor, CreditCard, Users, ChefHat, BarChart3, ArrowRight, Zap, BookOpen, Phone, ClipboardList } from 'lucide-react';
 
 export default function OperationsGuide() {
   return (
