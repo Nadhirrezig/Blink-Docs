@@ -10,6 +10,7 @@
 
 import DocsLayout from '@/components/DocsLayout';
 import MenuManagementCarousel from '@/components/MenuManagementCarousel';
+import QuickActionsSection from '@/components/admin/staff-roles/QuickActionsSection';
 
 export default function MenuManagement() {
   return (
@@ -59,6 +60,8 @@ export default function MenuManagement() {
             </div>
           </div>
         </div>
+        <div className="h-10"></div>
+        <QuickActionsSection />
       </div>
     </DocsLayout>
   );

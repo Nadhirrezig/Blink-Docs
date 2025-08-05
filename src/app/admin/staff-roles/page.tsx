@@ -46,6 +46,7 @@ export default function StaffRoles() {
         <RoleTemplatesSection />
         <BestPracticesSection />
 
+        <div className="h-10"></div>
         <QuickActionsSection />
       </div>
     </DocsLayout>

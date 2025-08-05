@@ -42,12 +42,12 @@ export default function HeroSection() {
             <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
               Everything Your
               <span className="text-blue-600 dark:text-blue-400 block">
-                Restaurant Needs
+                 Store Needs
               </span>
             </h2>
             
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-              Streamline your restaurant operations with Blink&apos;s comprehensive ERP system.
+              Streamline your Store operations with Blink&apos;s comprehensive ERP system.
               From POS to kitchen management, inventory to analytics - we&apos;ve got you covered.
             </p>
             

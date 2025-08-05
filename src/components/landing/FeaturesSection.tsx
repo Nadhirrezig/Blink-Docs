@@ -18,7 +18,7 @@ const features = [
       </svg>
     ),
     title: "Admin Management",
-    description: "Complete restaurant setup, menu management, staff coordination, and comprehensive analytics dashboard.",
+    description: "Complete setup, menu management, staff coordination, and comprehensive analytics dashboard.",
     link: "/admin",
     color: "blue"
   },
@@ -124,7 +124,7 @@ export default function FeaturesSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Complete Restaurant Management Solution
+            Complete Management Solution
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Blink provides everything your venue needs for efficient operations. 

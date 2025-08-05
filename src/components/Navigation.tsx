@@ -14,52 +14,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
-
-const navigationItems = [
-  {
-    title: '01. Getting Started',
-    href: '/getting-started',
-  },
-  {
-    title: '02. Admin Guide',
-    href: '/admin',
-    children: [
-      { title: 'Basic Information', href: '/admin/basic-information' },
-      { title: 'Menu Management', href: '/admin/menu-management' },
-      { title: 'Staff Management', href: '/admin/staff-management' },
-      { title: 'Staff Roles & Permissions', href: '/admin/staff-roles' },
-      { title: 'Payment Configuration', href: '/admin/payment-configuration' },
-      { title: 'Reports & Analytics', href: '/admin/reports-analytics' },
-    ],
-  },
-  {
-    title: '03. Staff Guide',
-    href: '/staff',
-    children: [
-      { title: 'POS Operations', href: '/staff/pos-operations' },
-      { title: 'Payment Processing', href: '/staff/payment-processing' },
-      { title: 'Table Management', href: '/staff/table-management' },
-      { title: 'Customer Service', href: '/staff/customer-service' },
-    ],
-  },
-  {
-    title: '04. Kitchen Guide',
-    href: '/kitchen',
-    children: [
-      { title: 'Kitchen Display System (KDS)', href: '/kitchen/kds' },
-      { title: 'Recipe Management', href: '/kitchen/recipe-management' },
-    ],
-  },
-  {
-    title: '05. Customer Guide',
-    href: '/customer',
-    children: [
-      { title: 'Online Ordering', href: '/customer/online-ordering' },
-      { title: 'Reservations', href: '/customer/reservations' },
-      { title: 'Account Management', href: '/customer/account-management' },
-    ],
-  },
-];
+import { navigationStructure, NavigationItem } from '@/data/navigation';
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -74,7 +29,7 @@ export default function Navigation() {
   }, [pathname]);
 
   // Helper function to check if a section should be expanded based on current path
-  const shouldExpandSection = useCallback((item: { href: string; children?: { href: string; title: string }[] }) => {
+  const shouldExpandSection = useCallback((item: NavigationItem) => {
     if (!item.children) return false;
     return item.children.some((child) => isActivePath(child.href)) || isActivePath(item.href);
   }, [isActivePath]);
@@ -82,7 +37,7 @@ export default function Navigation() {
   // Auto-expand sections based on current path
   useEffect(() => {
     const sectionsToExpand: string[] = [];
-    navigationItems.forEach(item => {
+    navigationStructure.forEach(item => {
       if (shouldExpandSection(item)) {
         sectionsToExpand.push(item.title);
       }
@@ -114,34 +69,28 @@ export default function Navigation() {
     };
 
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isMobileMenuOpen) {
+      if (e.key === 'Escape') {
         setIsMobileMenuOpen(false);
       }
     };
 
-    if (typeof window !== 'undefined') {
-      window.addEventListener('resize', handleResize);
-      document.addEventListener('keydown', handleEscape);
-    }
+    window.addEventListener('resize', handleResize);
+    document.addEventListener('keydown', handleEscape);
 
     return () => {
-      if (typeof window !== 'undefined') {
-        window.removeEventListener('resize', handleResize);
-        document.removeEventListener('keydown', handleEscape);
-      }
+      window.removeEventListener('resize', handleResize);
+      document.removeEventListener('keydown', handleEscape);
     };
-  }, [isMobileMenuOpen]);
+  }, []);
 
   return (
     <>
       <button
         onClick={toggleMobileMenu}
-        className="lg:hidden fixed top-4 left-4 z-50 p-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-lg transition-colors duration-200"
-        aria-label="Toggle navigation menu"
-        aria-expanded={isMobileMenuOpen}
+        className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg"
       >
         <svg
-          className="w-5 h-5"
+          className="w-6 h-6 text-gray-600 dark:text-gray-300"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -183,125 +132,94 @@ export default function Navigation() {
               <Image
                 src="/logo1.png"
                 alt="Blink Logo"
-                width={32}
-                height={32}
-                className="rounded"
+                width={40}
+                height={40}
+                className="rounded-lg"
               />
               <div>
                 <h1 className="text-xl font-bold text-gray-900 dark:text-white">
-                  Blink
+                  Blink Docs
                 </h1>
-                <p className="text-xs text-gray-500 dark:text-gray-400">
-                  Venue Store ERP
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  Venue Store ERP System
                 </p>
               </div>
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-400 ml-11">
-              Restaurant Management Documentation
-            </p>
           </Link>
 
-          <ul className="space-y-1">
-            {navigationItems.map((item) => {
-              const isActive = isActivePath(item.href);
-              const hasActiveChild = item.children?.some((child) => isActivePath(child.href));
-              const isExpanded = expandedSections.includes(item.title);
-
-              return (
-                <li key={item.title}>
-                  <div>
-                    <div className="flex items-center">
-                      <Link
-                        href={item.href}
-                        className={`flex-1 flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
-                          isActive || hasActiveChild
-                            ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-900 dark:text-blue-100 border border-blue-200 dark:border-blue-800'
-                            : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white'
-                        }`}
-                        onClick={() => {
-                          if (!item.children) {
-                            closeMobileMenu();
-                          }
+          <div className="space-y-2">
+            {navigationStructure.map((item) => (
+              <div key={item.href}>
+                <Link
+                  href={item.href}
+                  className={`block p-3 rounded-lg transition-colors duration-200 ${
+                    isActivePath(item.href)
+                      ? 'bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800'
+                      : 'hover:bg-gray-50 dark:hover:bg-gray-800'
+                  }`}
+                  onClick={closeMobileMenu}
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-gray-900 dark:text-white font-medium">
+                      {item.title}
+                    </span>
+                    {item.children && (
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          toggleSection(item.title);
                         }}
+                        className="p-1 hover:bg-gray-200 dark:hover:bg-gray-700 rounded"
                       >
-                        <span>{item.title}</span>
-                      </Link>
-                      {item.children && (
-                        <button
-                          onClick={() => toggleSection(item.title)}
-                          className={`ml-1 p-1 rounded transition-colors duration-200 ${
-                            isActive || hasActiveChild
-                              ? 'text-blue-900 dark:text-blue-100 hover:bg-blue-200 dark:hover:bg-blue-800'
-                              : 'text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'
+                        <svg
+                          className={`w-4 h-4 text-gray-500 dark:text-gray-400 transition-transform ${
+                            expandedSections.includes(item.title) ? 'rotate-180' : ''
                           }`}
-                          aria-label={`Toggle ${item.title} section`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
                         >
-                          <svg
-                            className={`w-4 h-4 transition-transform duration-200 ${
-                              isExpanded ? 'rotate-90' : ''
-                            }`}
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M9 5l7 7-7 7"
-                            />
-                          </svg>
-                        </button>
-                      )}
-                    </div>
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 9l-7 7-7-7"
+                          />
+                        </svg>
+                      </button>
+                    )}
                   </div>
+                </Link>
 
-                  {item.children && isExpanded && (
-                    <ul className="mt-2 ml-6 space-y-1">
-                      {item.children.map((child) => {
-                        const isChildActive = isActivePath(child.href);
-                        return (
-                          <li key={child.href}>
-                            <Link
-                              href={child.href}
-                              className={`block px-3 py-2 text-sm rounded-lg transition-all duration-200 ${
-                                isChildActive
-                                  ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-900 dark:text-blue-100 border-l-2 border-blue-500 font-medium'
-                                  : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white border-l-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600'
-                              }`}
-                              onClick={closeMobileMenu}
-                            >
-                              {child.title}
-                            </Link>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
-
-          {/* Copyright Footer */}
-          <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
-            <div className="text-center">
-              <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">
-                © 2024 Blink - Venue Store ERP
-              </p>
-              <p className="text-xs text-gray-400 dark:text-gray-500">
-                All rights reserved
-              </p>
-            </div>
+                {item.children && expandedSections.includes(item.title) && (
+                  <div className="ml-4 mt-2 space-y-1">
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        className={`block p-2 rounded-lg transition-colors duration-200 text-sm ${
+                          isActivePath(child.href)
+                            ? 'bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 text-blue-900 dark:text-blue-100'
+                            : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
+                        }`}
+                        onClick={closeMobileMenu}
+                      >
+                        {child.title}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </nav>
 
+      {/* Overlay for mobile */}
       {isMobileMenuOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden transition-opacity duration-300"
+          className="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden"
           onClick={closeMobileMenu}
-          aria-hidden="true"
         />
       )}
     </>

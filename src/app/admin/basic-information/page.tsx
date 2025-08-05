@@ -1,5 +1,6 @@
 import DocsLayout from '@/components/DocsLayout';
 import Image from 'next/image';
+import QuickActionsSection from '@/components/admin/staff-roles/QuickActionsSection';
 
 export default function BasicInformation() {
   return (
@@ -174,6 +175,8 @@ export default function BasicInformation() {
             <li>• If the theme section is not available, check your subscription plan</li>
           </ul>
         </div>
+        <div className="h-10"></div>
+        <QuickActionsSection />
       </div>
     </DocsLayout>
   );
