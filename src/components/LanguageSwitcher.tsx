@@ -43,6 +43,8 @@ export default function LanguageSwitcher({ className = '' }: LanguageSwitcherPro
   }, []);
 
   const applyTranslation = useCallback(async (targetLang: string) => {
+    console.log(`Starting translation to ${targetLang}...`);
+
     setIsTranslating(true);
     setTranslationError(null);
 
@@ -50,9 +52,15 @@ export default function LanguageSwitcher({ className = '' }: LanguageSwitcherPro
     document.body.style.pointerEvents = 'none';
     document.body.style.userSelect = 'none';
 
-    try {
-      console.log(`Starting translation to ${targetLang}...`);
+    // Create a timeout to ensure we always unblock interactions
+    const forceUnblockTimeout = setTimeout(() => {
+      console.warn('Translation timeout - force unblocking interactions');
+      document.body.style.pointerEvents = '';
+      document.body.style.userSelect = '';
+      setIsTranslating(false);
+    }, 15000); // 15 second maximum timeout
 
+    try {
       // Minimum loading time to prevent flickering
       const minLoadingTime = 800;
       const startTime = Date.now();
@@ -60,8 +68,13 @@ export default function LanguageSwitcher({ className = '' }: LanguageSwitcherPro
       // Use Google Translate's automatic translation
       await loadGoogleTranslate(targetLang);
 
-      // Wait for translation to be fully applied
-      await waitForTranslationComplete(targetLang);
+      // Wait for translation to be fully applied (with timeout)
+      await Promise.race([
+        waitForTranslationComplete(targetLang),
+        new Promise((_, reject) =>
+          setTimeout(() => reject(new Error('Translation detection timeout')), 10000)
+        )
+      ]);
 
       // Ensure minimum loading time
       const elapsedTime = Date.now() - startTime;
@@ -82,12 +95,16 @@ export default function LanguageSwitcher({ className = '' }: LanguageSwitcherPro
       setCurrentLanguage(SUPPORTED_LANGUAGES[0]);
 
     } finally {
-      // Re-enable page interactions
+      // Clear the force unblock timeout
+      clearTimeout(forceUnblockTimeout);
+
+      // Always re-enable page interactions
+      console.log('Re-enabling page interactions...');
       document.body.style.pointerEvents = '';
       document.body.style.userSelect = '';
       setIsTranslating(false);
     }
-  }, []);
+  }, [setIsTranslating, setTranslationError, setCurrentLanguage]);
 
   useEffect(() => {
     if (!isClient) return;
@@ -106,32 +123,83 @@ export default function LanguageSwitcher({ className = '' }: LanguageSwitcherPro
     }
   }, [searchParams, isClient, isTranslating, applyTranslation]);
 
+  // Cleanup effect to ensure interactions are never permanently blocked
+  useEffect(() => {
+    const cleanup = () => {
+      console.log('Cleanup: ensuring page interactions are enabled');
+      document.body.style.pointerEvents = '';
+      document.body.style.userSelect = '';
+    };
+
+    // Cleanup on component unmount
+    return cleanup;
+  }, []);
+
+  // Safety timeout to unblock interactions if something goes wrong
+  useEffect(() => {
+    if (isTranslating) {
+      const safetyTimeout = setTimeout(() => {
+        console.warn('Safety timeout: force unblocking interactions after 20 seconds');
+        document.body.style.pointerEvents = '';
+        document.body.style.userSelect = '';
+        setIsTranslating(false);
+      }, 20000);
+
+      return () => clearTimeout(safetyTimeout);
+    }
+  }, [isTranslating]);
+
   const waitForTranslationComplete = (targetLang: string): Promise<void> => {
     return new Promise((resolve) => {
       let attempts = 0;
-      const maxAttempts = 50; // 10 seconds max wait
+      const maxAttempts = 30; // 6 seconds max wait (30 * 200ms)
+      let checkInterval: NodeJS.Timeout;
 
       const checkTranslation = () => {
         attempts++;
+        console.log(`Translation check attempt ${attempts}/${maxAttempts}`);
 
-        // Check if translation is applied by looking for translated elements
-        const translatedElements = document.querySelectorAll('[class*="translated"], [style*="translated"]');
-        const hasTranslatedContent = document.body.innerHTML.includes('goog-te-');
+        try {
+          // Multiple ways to detect translation completion
+          const translatedElements = document.querySelectorAll('[class*="translated"], [style*="translated"]');
+          const hasGoogleTranslateElements = document.querySelectorAll('.goog-te-combo, .skiptranslate').length > 0;
+          const hasTranslatedContent = document.body.innerHTML.includes('goog-te-');
+          const htmlLang = document.documentElement.lang;
 
-        // Also check if the page language has changed
-        const htmlLang = document.documentElement.lang;
-        const isTranslated = translatedElements.length > 0 || hasTranslatedContent || htmlLang === targetLang;
+          // Check if translation is likely complete
+          const isTranslated = translatedElements.length > 0 ||
+                              hasTranslatedContent ||
+                              htmlLang === targetLang ||
+                              hasGoogleTranslateElements;
 
-        if (isTranslated || attempts >= maxAttempts) {
-          console.log(`Translation check completed after ${attempts} attempts`);
-          resolve();
-        } else {
-          setTimeout(checkTranslation, 200);
+          if (isTranslated) {
+            console.log(`Translation detected after ${attempts} attempts`);
+            clearInterval(checkInterval);
+            resolve();
+          } else if (attempts >= maxAttempts) {
+            console.log(`Translation check timeout after ${attempts} attempts - proceeding anyway`);
+            clearInterval(checkInterval);
+            resolve(); // Resolve anyway to prevent blocking
+          }
+        } catch (error) {
+          console.error('Error during translation check:', error);
+          clearInterval(checkInterval);
+          resolve(); // Resolve on error to prevent blocking
         }
       };
 
       // Start checking after a short delay
-      setTimeout(checkTranslation, 500);
+      setTimeout(() => {
+        checkInterval = setInterval(checkTranslation, 200);
+        checkTranslation(); // Run first check immediately
+      }, 500);
+
+      // Fallback timeout to prevent infinite waiting
+      setTimeout(() => {
+        console.log('Translation detection fallback timeout');
+        clearInterval(checkInterval);
+        resolve();
+      }, 8000);
     });
   };
 
@@ -139,97 +207,116 @@ export default function LanguageSwitcher({ className = '' }: LanguageSwitcherPro
     return new Promise((resolve, reject) => {
       console.log('Loading Google Translate script...');
 
-      // Clean up any existing Google Translate elements
-      const existingElements = document.querySelectorAll('.goog-te-banner-frame, .goog-te-menu-frame, .skiptranslate');
-      existingElements.forEach(el => el.remove());
-
-      // Remove existing script
-      const existingScript = document.querySelector('script[src*="translate.google.com"]');
-      if (existingScript) {
-        existingScript.remove();
-      }
-
-      // Create hidden container
-      let container = document.getElementById('google_translate_element');
-      if (!container) {
-        container = document.createElement('div');
-        container.id = 'google_translate_element';
-        container.style.display = 'none';
-        document.body.appendChild(container);
-      }
-
-      // Initialize Google Translate
-      window.googleTranslateElementInit = () => {
-        console.log('Google Translate initialized, creating element...');
-
-        try {
-          if (!window.google?.translate?.TranslateElement) {
-            throw new Error('Google Translate API not available');
-          }
-
-          new window.google.translate.TranslateElement({
-            pageLanguage: 'en',
-            includedLanguages: 'en,fr,es,de,it',
-            layout: 0, // SIMPLE
-            autoDisplay: false,
-          }, 'google_translate_element');
-
-          // Auto-trigger translation after element is created
-          setTimeout(() => {
-            console.log('Triggering translation...');
-            const select = document.querySelector('.goog-te-combo') as HTMLSelectElement;
-            if (select) {
-              for (let i = 0; i < select.options.length; i++) {
-                if (select.options[i].value.includes(targetLang)) {
-                  console.log(`Found target language option: ${select.options[i].value}`);
-                  select.selectedIndex = i;
-                  select.dispatchEvent(new Event('change'));
-                  break;
-                }
-              }
-              resolve();
-            } else {
-              console.error('Google Translate select element not found');
-              reject(new Error('Translation select not found'));
-            }
-          }, 1500); // Increased delay to ensure element is ready
-
-        } catch (error) {
-          console.error('Error creating Google Translate element:', error);
-          reject(error);
-        }
-      };
-
-      // Load script with timeout
-      const script = document.createElement('script');
-      script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-
-      const timeout = setTimeout(() => {
+      // Set up timeout to prevent hanging
+      const scriptTimeout = setTimeout(() => {
         console.error('Google Translate script loading timeout');
         reject(new Error('Script loading timeout'));
-      }, 10000);
+      }, 8000);
 
-      script.onload = () => {
-        console.log('Google Translate script loaded successfully');
-        clearTimeout(timeout);
-      };
+      try {
+        // Clean up any existing Google Translate elements
+        const existingElements = document.querySelectorAll('.goog-te-banner-frame, .goog-te-menu-frame, .skiptranslate');
+        existingElements.forEach(el => el.remove());
 
-      script.onerror = (error) => {
-        console.error('Failed to load Google Translate script:', error);
-        clearTimeout(timeout);
-        reject(new Error('Failed to load translation script'));
-      };
+        // Remove existing script
+        const existingScript = document.querySelector('script[src*="translate.google.com"]');
+        if (existingScript) {
+          existingScript.remove();
+        }
 
-      document.head.appendChild(script);
+        // Create hidden container
+        let container = document.getElementById('google_translate_element');
+        if (!container) {
+          container = document.createElement('div');
+          container.id = 'google_translate_element';
+          container.style.display = 'none';
+          document.body.appendChild(container);
+        }
+
+        // Initialize Google Translate
+        window.googleTranslateElementInit = () => {
+          console.log('Google Translate initialized, creating element...');
+
+          try {
+            if (!window.google?.translate?.TranslateElement) {
+              throw new Error('Google Translate API not available');
+            }
+
+            new window.google.translate.TranslateElement({
+              pageLanguage: 'en',
+              includedLanguages: 'en,fr,es,de,it',
+              layout: 0, // SIMPLE
+              autoDisplay: false,
+            }, 'google_translate_element');
+
+            // Auto-trigger translation after element is created
+            const triggerTimeout = setTimeout(() => {
+              console.log('Triggering translation...');
+              const select = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+              if (select) {
+                for (let i = 0; i < select.options.length; i++) {
+                  if (select.options[i].value.includes(targetLang)) {
+                    console.log(`Found target language option: ${select.options[i].value}`);
+                    select.selectedIndex = i;
+                    select.dispatchEvent(new Event('change'));
+                    break;
+                  }
+                }
+                clearTimeout(scriptTimeout);
+                resolve();
+              } else {
+                console.warn('Google Translate select element not found - resolving anyway');
+                clearTimeout(scriptTimeout);
+                resolve(); // Resolve anyway to prevent blocking
+              }
+            }, 1500);
+
+            // Fallback timeout for translation trigger
+            setTimeout(() => {
+              clearTimeout(triggerTimeout);
+              clearTimeout(scriptTimeout);
+              resolve(); // Always resolve to prevent blocking
+            }, 5000);
+
+          } catch (error) {
+            console.error('Error creating Google Translate element:', error);
+            clearTimeout(scriptTimeout);
+            resolve(); // Resolve on error to prevent blocking
+          }
+        };
+
+        // Load script
+        const script = document.createElement('script');
+        script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+
+        script.onload = () => {
+          console.log('Google Translate script loaded successfully');
+        };
+
+        script.onerror = (error) => {
+          console.error('Failed to load Google Translate script:', error);
+          clearTimeout(scriptTimeout);
+          resolve(); // Resolve on error to prevent blocking
+        };
+
+        document.head.appendChild(script);
+
+      } catch (error) {
+        console.error('Error in loadGoogleTranslate:', error);
+        clearTimeout(scriptTimeout);
+        resolve(); // Always resolve to prevent blocking
+      }
     });
   };
 
   const handleLanguageChange = async (language: Language) => {
     // Prevent interaction during translation
     if (isTranslating) {
+      console.log('Translation already in progress, ignoring language change');
       return;
     }
 
+    console.log(`Changing language to: ${language.code}`);
     setIsOpen(false);
     setTranslationError(null);
 
@@ -247,13 +334,31 @@ export default function LanguageSwitcher({ className = '' }: LanguageSwitcherPro
     // Update current language immediately for UI feedback
     setCurrentLanguage(language);
 
-    // Apply translation
+    // Apply translation with error handling
     if (language.code !== 'en') {
-      await applyTranslation(language.code);
+      try {
+        await applyTranslation(language.code);
+      } catch (error) {
+        console.error('Language change failed:', error);
+        // Ensure interactions are unblocked on error
+        document.body.style.pointerEvents = '';
+        document.body.style.userSelect = '';
+        setIsTranslating(false);
+      }
     } else {
       // Reset to English - reload page to clear translations
       setIsTranslating(true);
+
+      // Set a timeout to force unblock if reload fails
+      const reloadTimeout = setTimeout(() => {
+        console.warn('Reload timeout - force unblocking interactions');
+        document.body.style.pointerEvents = '';
+        document.body.style.userSelect = '';
+        setIsTranslating(false);
+      }, 2000);
+
       setTimeout(() => {
+        clearTimeout(reloadTimeout);
         window.location.reload();
       }, 300); // Small delay to show loading state
     }
