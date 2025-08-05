@@ -10,7 +10,6 @@
 
 import DocsLayout from '@/components/DocsLayout';
 import TableManagementCarousel from '@/components/TableManagementCarousel';
-import { CheckCircle, Palette, Handshake, BarChart3 } from 'lucide-react';
 
 export default function TableManagement() {
   return (
@@ -69,7 +68,7 @@ export default function TableManagement() {
             <div className="bg-gradient-to-r from-green-500 to-emerald-600 p-6 text-white">
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
-                  <CheckCircle className="w-6 h-6" />
+                  <span className="text-xl">✅</span>
                 </div>
                 <div>
                   <h3 className="text-xl font-bold">Setup Checklist</h3>
@@ -125,7 +124,7 @@ export default function TableManagement() {
             <div className="bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 border border-orange-200 dark:border-orange-800 rounded-2xl p-6">
               <div className="flex items-center space-x-3 mb-4">
                 <div className="w-10 h-10 bg-orange-100 dark:bg-orange-900/30 rounded-xl flex items-center justify-center">
-                  <Palette className="w-6 h-6 text-orange-600" />
+                  <span className="text-xl">🎨</span>
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-orange-900 dark:text-orange-100">Design Pro Tips</h3>
@@ -143,7 +142,7 @@ export default function TableManagement() {
                 </div>
                 <div className="flex items-center space-x-2 text-orange-800 dark:text-orange-200">
                   <span className="w-1.5 h-1.5 bg-orange-500 rounded-full"></span>
-                  <span>Add clear &quot;Scan to Order&quot; instructions</span>
+                  <span>Add clear "Scan to Order" instructions</span>
                 </div>
               </div>
             </div>
@@ -152,7 +151,7 @@ export default function TableManagement() {
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border border-blue-200 dark:border-blue-800 rounded-2xl p-6">
               <div className="flex items-center space-x-3 mb-4">
                 <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center">
-                  <Handshake className="w-6 h-6 text-blue-600" />
+                  <span className="text-xl">🤝</span>
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-blue-900 dark:text-blue-100">Customer Support</h3>
@@ -179,7 +178,7 @@ export default function TableManagement() {
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 border border-purple-200 dark:border-purple-800 rounded-2xl p-6">
               <div className="flex items-center space-x-3 mb-4">
                 <div className="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center">
-                  <BarChart3 className="w-6 h-6 text-purple-600" />
+                  <span className="text-xl">📊</span>
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-purple-900 dark:text-purple-100">Smart Analytics</h3>

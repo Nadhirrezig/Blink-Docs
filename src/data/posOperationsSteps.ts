@@ -72,7 +72,7 @@ export const posOperationsSteps: MenuStep[] = [
     description: "Review the complete order with the customer, verify all details, make final adjustments, and confirm the order before processing payment.",
     screenshots: [
       { src: "/screenshots/confirme.png", alt: "Order Confirmation" },
-      { src: "/screenshots/kotsent.png", alt: "kot sent to kitchen" },
+      { src: "/screenshots/kotsent.png", alt: "kot sent to kitchen" }
     ],
     content: {
       process: [
