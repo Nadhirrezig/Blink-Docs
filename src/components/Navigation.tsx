@@ -170,7 +170,7 @@ export default function Navigation() {
             </div>
             <div className="mb-2">
               <span className="block text-xs text-yellow-700 dark:text-yellow-400 bg-yellow-50 dark:bg-yellow-900/30 rounded px-2 py-1">
-                Automatic translation may contain bugs or errors.
+                Note: Translation is experimental and may contain bugs or errors.
               </span>
             </div>
             <LanguageSwitcher className="w-full" />
