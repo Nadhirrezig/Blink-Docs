@@ -1,6 +1,6 @@
 import DocsLayout from '@/components/DocsLayout';
 import QuickActionsSection from '@/components/admin/staff-roles/QuickActionsSection';
-import Image from 'next/image';
+import { ClickableImage } from '@/components/ClickableImage';
 
 export default function ReportsAnalytics() {
   return (
@@ -18,7 +18,7 @@ export default function ReportsAnalytics() {
         Here you can view your sales reports, inventory reports, and customer analytics. You can also export your data in various formats.
         </p>
 
-        <Image src="/screenshots/dashboard.png" alt="Analytics Dashboard" width={1000} height={1000} />
+        <ClickableImage src="/screenshots/dashboard.png" alt="Analytics Dashboard" width={1000} height={1000} hoverEffect="subtle" />
 
         <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
           Sales Reports
@@ -34,7 +34,7 @@ export default function ReportsAnalytics() {
             <li>• Sales by employee</li>
             <li>• Sales by customer</li>
           </ul>
-          <Image src="/screenshots/reports.png" alt="Sales Reports" width={1000} height={1000} />
+          <ClickableImage src="/screenshots/reports.png" alt="Sales Reports" width={1000} height={1000} hoverEffect="subtle" />
         </div>
 
         <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
@@ -147,7 +147,7 @@ export default function ReportsAnalytics() {
             <li>• Select the format you want to export</li>
             <li>• Click on the export button</li>
           </ol>
-          <Image src="/screenshots/export.png" alt="Export Process" width={1000} height={1000} />
+          <ClickableImage src="/screenshots/export.png" alt="Export Process" width={1000} height={1000} hoverEffect="subtle" />
         </div>
 
         <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">

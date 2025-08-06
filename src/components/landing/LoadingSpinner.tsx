@@ -11,7 +11,7 @@
 'use client';
 
 import { useEffect, useState, useMemo } from 'react';
-import Image from 'next/image';
+import { ClickableImage } from '../ClickableImage';
 
 interface LoadingSpinnerProps {
   onComplete?: () => void;
@@ -57,12 +57,13 @@ export default function LoadingSpinner({ onComplete, delay = 2000 }: LoadingSpin
       <div className="text-center">
         {/* Logo */}
         <div className="mb-8">
-          <Image
+          <ClickableImage
             src="/logo1.png"
             alt="Blink Logo"
             width={80}
             height={80}
             className="mx-auto rounded-xl shadow-lg animate-pulse"
+            hoverEffect="subtle"
           />
         </div>
         

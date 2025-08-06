@@ -112,9 +112,6 @@ export default function TableManagement() {
 
           {/* Pro Tips */}
           <div className="space-y-6">
-            {/* QR Code Design Tips */}
-
-            {/* Customer Support */}
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border border-blue-200 dark:border-blue-800 rounded-2xl p-6">
               <div className="flex items-center space-x-3 mb-4">
                 <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center">

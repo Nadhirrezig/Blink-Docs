@@ -11,11 +11,11 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useState, useEffect, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
 import { navigationStructure, NavigationItem } from '@/data/navigation';
 import LanguageSwitcher from './LanguageSwitcher';
+import { ClickableImage } from './ClickableImage';
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -130,12 +130,13 @@ export default function Navigation() {
             onClick={closeMobileMenu}
           >
             <div className="flex items-center space-x-3 mb-2">
-              <Image
+              <ClickableImage
                 src="/logo1.png"
                 alt="Blink Logo"
                 width={40}
                 height={40}
                 className="rounded-lg"
+                hoverEffect="subtle"
               />
               <div>
                 <h1 className="text-xl font-bold text-gray-900 dark:text-white">

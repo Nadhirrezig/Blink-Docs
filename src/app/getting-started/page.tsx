@@ -1,5 +1,5 @@
 import DocsLayout from '@/components/DocsLayout';
-import Image from 'next/image';
+import { ClickableImage } from '@/components/ClickableImage';
 import { Rocket, Bug, Mail } from 'lucide-react';
 
 export default function GettingStarted() {
@@ -28,7 +28,7 @@ export default function GettingStarted() {
         </p>
         <div className="bg-gray-100 dark:bg-gray-800 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center mb-8">
           <p className="text-gray-500 dark:text-gray-400">
-            <Image src="/screenshots/overview1.png" alt="Blink Overview" width={800} height={400} className="w-full h-auto rounded-lg mb-8" />
+            <ClickableImage src="/screenshots/overview1.png" alt="Blink Overview" width={800} height={400} className="w-full h-auto rounded-lg mb-8" hoverEffect="subtle" />
           </p>
         </div>
 
@@ -118,7 +118,7 @@ export default function GettingStarted() {
             </ul>
             <div className="bg-gray-100 dark:bg-gray-800 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center mb-8">
           <p className="text-gray-500 dark:text-gray-400">
-            <Image src="/screenshots/signup.png" alt="Sign Up" width={800} height={400} className="w-full h-auto rounded-lg mb-8" />
+            <ClickableImage src="/screenshots/signup.png" alt="Sign Up" width={800} height={400} className="w-full h-auto rounded-lg mb-8" hoverEffect="subtle" />
           </p>
         </div>
           </div>
@@ -136,7 +136,7 @@ export default function GettingStarted() {
             </ul>
             <div className="bg-gray-100 dark:bg-gray-800 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center mb-8">
           <p className="text-gray-500 dark:text-gray-400">
-            <Image src="/screenshots/branch.png" alt="Branch" width={800} height={400} className="w-full h-auto rounded-lg mb-8" />
+            <ClickableImage src="/screenshots/branch.png" alt="Branch" width={800} height={400} className="w-full h-auto rounded-lg mb-8" hoverEffect="subtle" />
           </p>
         </div>
           </div>
@@ -154,7 +154,7 @@ export default function GettingStarted() {
           </div>
           <div className="bg-gray-100 dark:bg-gray-800 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center mb-8">
           <p className="text-gray-500 dark:text-gray-400">
-            <Image src="/screenshots/signup1.png" alt="Branch" width={800} height={400} className="w-full h-auto rounded-lg mb-8" />
+            <ClickableImage src="/screenshots/signup1.png" alt="Branch" width={800} height={400} className="w-full h-auto rounded-lg mb-8" hoverEffect="subtle" />
           </p>
         </div>
         </div>

@@ -9,7 +9,7 @@
  */
 
 import DocsLayout from '@/components/DocsLayout';
-import Image from 'next/image';
+import { ClickableImage } from '@/components/ClickableImage';
 import Link from 'next/link';
 import { UserCheck } from 'lucide-react';
 
@@ -33,7 +33,7 @@ export default function AdminGuide() {
 
         <div className="bg-gray-100 dark:bg-gray-800 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center mb-8">
           <p className="text-gray-500 dark:text-gray-400">
-            <Image src="/screenshots/dashboard.png" alt="Admin Dashboard" width={800} height={400} className="w-full h-auto rounded-lg mb-8" />
+            <ClickableImage src="/screenshots/dashboard.png" alt="Admin Dashboard" width={800} height={400} className="w-full h-auto rounded-lg mb-8" hoverEffect="subtle" />
           </p>
         </div>
 

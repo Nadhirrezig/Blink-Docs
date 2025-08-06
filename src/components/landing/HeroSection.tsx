@@ -8,8 +8,8 @@
  * All rights reserved.
  */
 
-import Image from 'next/image';
 import Link from 'next/link';
+import { ClickableImage } from '../ClickableImage';
 
 export default function HeroSection() {
   return (
@@ -22,12 +22,13 @@ export default function HeroSection() {
           {/* Left Column - Content */}
           <div className="text-center lg:text-left">
             <div className="flex items-center justify-center lg:justify-start space-x-3 mb-6">
-              <Image
+              <ClickableImage
                 src="/logo1.png"
                 alt="Blink Logo"
                 width={48}
                 height={48}
                 className="rounded-lg shadow-sm"
+                hoverEffect="subtle"
               />
               <div>
                 <h1 className="text-2xl font-bold text-gray-900 dark:text-white">

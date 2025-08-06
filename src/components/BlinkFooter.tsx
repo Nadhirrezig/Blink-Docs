@@ -8,19 +8,20 @@
  * All rights reserved.
  */
 
-import Image from 'next/image';
+import { ClickableImage } from './ClickableImage';
 
 export default function BlinkFooter() {
   return (
     <footer className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700">
       <div className="flex flex-col items-center space-y-4">
         <div className="flex items-center space-x-3">
-          <Image
+          <ClickableImage
             src="/logo1.png"
             alt="Blink Logo"
             width={24}
             height={24}
             className="rounded"
+            hoverEffect="subtle"
           />
           <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
             Blink - Venue Store ERP System
