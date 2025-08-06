@@ -1,7 +1,7 @@
 import DocsLayout from '@/components/DocsLayout';
 import Link from 'next/link';
-import Image from 'next/image';
 import { ChefHat, Clock } from 'lucide-react';
+import { ClickableImage } from '@/components/ClickableImage';
 
 export default function KitchenGuide() {
   return (
@@ -23,7 +23,7 @@ export default function KitchenGuide() {
 
         <div className="bg-gray-100 dark:bg-gray-800 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center mb-8">
           <p className="text-gray-500 dark:text-gray-400">
-            <Image 
+            <ClickableImage 
               src="/screenshots/kotorders.png" 
               alt="Kitchen on ticket Overview" 
               width={800}

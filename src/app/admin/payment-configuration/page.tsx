@@ -1,6 +1,6 @@
+import { ClickableImage } from '@/components/ClickableImage';
 import DocsLayout from '@/components/DocsLayout';
 import QuickActionsSection from '@/components/admin/staff-roles/QuickActionsSection';
-import Image from 'next/image';
 
 export default function PaymentConfiguration() {
   return (
@@ -102,7 +102,7 @@ export default function PaymentConfiguration() {
               <li>• Include promotional messages or special offers</li>
               <li>• Set up receipt printing</li>
             </ul>
-            <Image src="/screenshots/reciptsettings.png" alt="Receipt Settings" width={1000} height={1000} />
+            <ClickableImage src="/screenshots/reciptsettings.png" alt="Receipt Settings" width={1000} height={1000} />
           </div>
           <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
@@ -113,7 +113,7 @@ export default function PaymentConfiguration() {
               <li>• Set printer to direct print</li>
               <li>• Configure printer settings (paper size, etc.)</li>
             </ul>
-            <Image src="/screenshots/printsettings.png" alt="Print Settings" width={1000} height={1000} />
+            <ClickableImage src="/screenshots/printsettings.png" alt="Print Settings" width={1000} height={1000} />
           </div>
         </div>
 

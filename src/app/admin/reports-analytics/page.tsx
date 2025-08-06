@@ -1,3 +1,4 @@
+import React from 'react';
 import DocsLayout from '@/components/DocsLayout';
 import QuickActionsSection from '@/components/admin/staff-roles/QuickActionsSection';
 import { ClickableImage } from '@/components/ClickableImage';

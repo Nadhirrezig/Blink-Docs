@@ -1,7 +1,6 @@
 import DocsLayout from '@/components/DocsLayout';
-import Image from 'next/image';
 import QuickActionsSection from '@/components/admin/staff-roles/QuickActionsSection';
-
+import { ClickableImage } from '@/components/ClickableImage';
 export default function BasicInformation() {
   return (
     <DocsLayout>
@@ -38,7 +37,7 @@ export default function BasicInformation() {
             </p>
           </div>
           <div className="md:w-1/2 w-full flex justify-center mt-8 md:mt-0 z-10">
-            <Image 
+            <ClickableImage 
               src="/screenshots/Profile.png" 
               alt="Profile Setup" 
               width={500} 
@@ -69,7 +68,7 @@ export default function BasicInformation() {
                 </ol>
               </div>
               <div className="lg:w-1/2 w-full">
-                <Image
+                <ClickableImage
                   src="/screenshots/settings.png"
                   alt="Business Settings"
                   width={800}
@@ -98,7 +97,7 @@ export default function BasicInformation() {
               </ul>
             </div>
             <div className="lg:w-1/2 w-full">
-              <Image 
+              <ClickableImage 
                 src="/screenshots/location.png" 
                 alt="Location Settings" 
                 width={800} 
@@ -127,7 +126,7 @@ export default function BasicInformation() {
                 </ol>
               </div>
               <div className="lg:w-1/2 w-full">
-                <Image
+                <ClickableImage
                   src="/screenshots/logobranding.png"
                   alt="Logo Branding"
                   width={800}
@@ -151,7 +150,7 @@ export default function BasicInformation() {
                 </ol>
               </div>
               <div className="lg:w-1/2 w-full">
-                <Image
+                <ClickableImage
                   src="/screenshots/themebranding.png"
                   alt="Theme Branding"
                   width={800}

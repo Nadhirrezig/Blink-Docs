@@ -7,7 +7,6 @@
  * This software and its documentation are proprietary to Blink.
  * All rights reserved.
  */
-
 import DocsLayout from '@/components/DocsLayout';
 import { ClickableImage } from '@/components/ClickableImage';
 import Link from 'next/link';
