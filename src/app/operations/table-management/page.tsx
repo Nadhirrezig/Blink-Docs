@@ -10,6 +10,7 @@
 
 import DocsLayout from '@/components/DocsLayout';
 import TableManagementCarousel from '@/components/TableManagementCarousel';
+import { CheckCircle, Handshake, BarChart2 } from 'lucide-react';
 
 export default function TableManagement() {
   return (
@@ -68,7 +69,7 @@ export default function TableManagement() {
             <div className="bg-gradient-to-r from-green-500 to-emerald-600 p-6 text-white">
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
-                  <span className="text-xl">✅</span>
+                  <CheckCircle className="w-7 h-7 text-green-300" aria-label="Setup Checklist" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold">Setup Checklist</h3>
@@ -83,17 +84,8 @@ export default function TableManagement() {
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900 dark:text-white">WiFi Network Optimization</h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">Ensure strong, reliable WiFi coverage at all tables</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4 p-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-lg transition-colors cursor-pointer">
-                  <div className="flex-shrink-0 w-6 h-6 border-2 border-green-500 rounded-full flex items-center justify-center mt-0.5">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-gray-900 dark:text-white">Menu Photography</h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">High-quality images increase orders by 30%</p>
+                    <h4 className="font-medium text-gray-900 dark:text-white">Network Optimization</h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Ensure strong, reliable Network coverage at all tables</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4 p-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-lg transition-colors cursor-pointer">
@@ -121,37 +113,12 @@ export default function TableManagement() {
           {/* Pro Tips */}
           <div className="space-y-6">
             {/* QR Code Design Tips */}
-            <div className="bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 border border-orange-200 dark:border-orange-800 rounded-2xl p-6">
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="w-10 h-10 bg-orange-100 dark:bg-orange-900/30 rounded-xl flex items-center justify-center">
-                  <span className="text-xl">🎨</span>
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-orange-900 dark:text-orange-100">Design Pro Tips</h3>
-                  <p className="text-sm text-orange-700 dark:text-orange-300">Make your QR codes stand out</p>
-                </div>
-              </div>
-              <div className="space-y-3 text-sm">
-                <div className="flex items-center space-x-2 text-orange-800 dark:text-orange-200">
-                  <span className="w-1.5 h-1.5 bg-orange-500 rounded-full"></span>
-                  <span>Use high contrast colors for better scanning</span>
-                </div>
-                <div className="flex items-center space-x-2 text-orange-800 dark:text-orange-200">
-                  <span className="w-1.5 h-1.5 bg-orange-500 rounded-full"></span>
-                  <span>Include your logo but keep it small</span>
-                </div>
-                <div className="flex items-center space-x-2 text-orange-800 dark:text-orange-200">
-                  <span className="w-1.5 h-1.5 bg-orange-500 rounded-full"></span>
-                  <span>Add clear &quot;Scan to Order&quot; instructions</span>
-                </div>
-              </div>
-            </div>
 
             {/* Customer Support */}
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border border-blue-200 dark:border-blue-800 rounded-2xl p-6">
               <div className="flex items-center space-x-3 mb-4">
                 <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center">
-                  <span className="text-xl">🤝</span>
+                  <Handshake className="w-7 h-7 text-blue-500" aria-label="Customer Support" />
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-blue-900 dark:text-blue-100">Customer Support</h3>
@@ -178,7 +145,7 @@ export default function TableManagement() {
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 border border-purple-200 dark:border-purple-800 rounded-2xl p-6">
               <div className="flex items-center space-x-3 mb-4">
                 <div className="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center">
-                  <span className="text-xl">📊</span>
+                  <BarChart2 className="w-7 h-7 text-purple-500" aria-label="Smart Analytics" />
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-purple-900 dark:text-purple-100">Smart Analytics</h3>

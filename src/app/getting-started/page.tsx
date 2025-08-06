@@ -41,14 +41,47 @@ export default function GettingStarted() {
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
               Minimum Requirements
             </h3>
-            <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-              <li>• Old laptop/Pc to run the server</li>
-              <li>• Php 8+</li>
-              <li>• MySQL installed</li>
-              <li>• No Internet connection (if running locally)</li>
-              <li>• 1GB RAM</li>
-              <li>• 10GB Storage</li>
-            </ul>
+            <div className="space-y-4">
+              <div className="bg-green-100 dark:bg-green-900/30 rounded-lg p-4 flex items-start gap-3">
+                <div className="flex-shrink-0 mt-1">
+                  <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-green-400/80 dark:bg-green-700 text-white font-bold text-lg">
+                    1
+                  </span>
+                </div>
+                <div>
+                  <div className="font-semibold text-green-900 dark:text-green-100 mb-1">
+                    <span>Cloud Access (Recommended)</span>
+                  </div>
+                  <div className="text-green-800 dark:text-green-200 text-sm">
+                    Simply log in with your account from any modern device using a web browser and internet connection. No installation or setup required.
+                  </div>
+                </div>
+              </div>
+              <div className="bg-blue-100 dark:bg-blue-900/30 rounded-lg p-4 flex items-start gap-3">
+                <div className="flex-shrink-0 mt-1">
+                  <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-400/80 dark:bg-blue-700 text-white font-bold text-lg">
+                    2
+                  </span>
+                </div>
+                <div>
+                  <div className="font-semibold text-blue-900 dark:text-blue-100 mb-1">
+                    <span>Local Installation</span>
+                  </div>
+                  <div className="text-blue-800 dark:text-blue-200 text-sm mb-2">
+                    Prefer to run Blink on your own hardware? Here’s what you’ll need:
+                  </div>
+                  <ul className="list-disc list-inside text-blue-800 dark:text-blue-200 text-sm space-y-1 ml-2">
+                    <li>Old laptop or PC to run the server</li>
+                    <li>PHP 8+ installed</li>
+                    <li>MySQL installed</li>
+                    <li>No internet connection required (if running locally)</li>
+                    <li>1GB RAM minimum</li>
+                    <li>10GB storage space</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
           </div>
 
           <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">

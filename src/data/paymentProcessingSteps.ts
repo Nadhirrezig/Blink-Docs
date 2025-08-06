@@ -13,156 +13,87 @@ import { MenuStep } from '@/types/menu';
 export const paymentProcessingSteps: MenuStep[] = [
   {
     id: 0,
-    title: "Cash Drawer Setup & Management",
-    subtitle: "Properly set up and manage the cash drawer throughout your shift",
-    description: "Learn how to open, organize, and maintain the cash drawer, including starting cash counts and proper bill organization for efficient transactions.",
+    title: 'Find the Order',
+    subtitle: 'Locate the correct order in the POS',
+    description: 'Start by finding the customer’s order using the POS system.',
     screenshots: [
-      { src: "/screenshots/cash-drawer-setup.png", alt: "Cash Drawer Organization" },
-      { src: "/screenshots/starting-cash-count.png", alt: "Starting Cash Count Process" }
+      { src: '/screenshots/find_order.png', alt: 'Payment Processing Interface' },
     ],
     content: {
       process: [
-        "[PLACEHOLDER] Count and verify starting cash amount at shift beginning",
-        "[PLACEHOLDER] Organize bills by denomination with all facing same direction",
-        "[PLACEHOLDER] Ensure adequate change supply (coins and small bills)",
-        "[PLACEHOLDER] Test cash drawer opening mechanism",
-        "[PLACEHOLDER] Record starting cash amount in system or log"
+        'Look at your Orders screen',
+        'Find the order by table number (e.g., "Table 5") or order number (e.g., "ORD-001")',
+        'Click on the order to open it',
       ],
-      bestPractices: [
-        "[PLACEHOLDER] Keep large bills ($50, $100) separate until transaction complete",
-        "[PLACEHOLDER] Never leave cash drawer open unattended",
-        "[PLACEHOLDER] Organize coins in proper compartments for quick access",
-        "[PLACEHOLDER] Keep drawer neat and organized throughout shift"
-      ],
-      tips: [
-        "[PLACEHOLDER] Face all bills in same direction for faster counting",
-        "[PLACEHOLDER] Keep frequently used denominations easily accessible",
-        "[PLACEHOLDER] Report any cash drawer malfunctions immediately"
-      ]
-    }
+    },
   },
   {
     id: 1,
-    title: "Processing Cash Payments",
-    subtitle: "Handle cash transactions accurately and efficiently",
-    description: "Master the process of accepting cash payments, calculating change, and completing transactions while maintaining accuracy and security.",
+    title: 'Verify the Order',
+    subtitle: 'Review order details',
+    description: 'Ensure all items and the total amount are correct before proceeding.',
     screenshots: [
-      { src: "/screenshots/cash-payment-screen.png", alt: "Cash Payment Interface" },
-      { src: "/screenshots/change-calculation.png", alt: "Change Calculation Display" },
-      { src: "/screenshots/cash-handling.png", alt: "Proper Cash Handling Technique" }
+      { src: '/screenshots/verify_order.png', alt: 'Order Taking Process' },
     ],
     content: {
       process: [
-        "[PLACEHOLDER] Announce total amount clearly to customer",
-        "[PLACEHOLDER] Accept cash payment and count money received",
-        "[PLACEHOLDER] Enter payment amount in POS system",
-        "[PLACEHOLDER] Calculate change amount (system will display)",
-        "[PLACEHOLDER] Count change back to customer starting with coins"
+        'Review all items in the order',
+        'Check the total amount at the bottom',
+        'Make any necessary adjustments (add/remove items) if required',
       ],
-      bestPractices: [
-        "[PLACEHOLDER] Count money twice - once received, once when giving change",
-        "[PLACEHOLDER] Place received bills on cash drawer ledge until transaction complete",
-        "[PLACEHOLDER] Count change aloud to customer for transparency",
-        "[PLACEHOLDER] Always provide receipt unless customer declines"
-      ],
-      tips: [
-        "[PLACEHOLDER] Start change counting with largest denominations first",
-        "[PLACEHOLDER] Use phrases like 'Out of $20, your change is $7.50'",
-        "[PLACEHOLDER] Keep received payment visible until change is given"
-      ]
-    }
+    },
   },
   {
     id: 2,
-    title: "Receipt Printing & Management",
-    subtitle: "Handle receipt printing, reprints, and customer receipt needs",
-    description: "Learn to print receipts, handle reprint requests, manage receipt paper, and troubleshoot common printing issues.",
+    title: 'Generate the Bill',
+    subtitle: 'Create the bill for the order',
+    description: 'Generate and review the bill before payment.',
     screenshots: [
-      { src: "/screenshots/receipt-printing.png", alt: "Receipt Printing Process" },
-      { src: "/screenshots/receipt-options.png", alt: "Receipt Options Menu" },
-      { src: "/screenshots/receipt-troubleshooting.png", alt: "Receipt Printer Troubleshooting" }
+      { src: '/screenshots/select_option.png', alt: 'Receipt Generation' },
+      { src: '/screenshots/add_payment.png', alt: 'Receipt Generation' },
     ],
     content: {
       process: [
-        "[PLACEHOLDER] Automatically print receipt after payment completion",
-        "[PLACEHOLDER] Tear receipt cleanly from printer",
-        "[PLACEHOLDER] Hand receipt to customer with thank you",
-        "[PLACEHOLDER] Handle reprint requests using order lookup",
-        "[PLACEHOLDER] Check receipt paper levels regularly"
+        'Click the "Bill & Pay" button',
+        'The system will display the final amount',
+        'Print the bill if the customer requests',
+        'Click the "Add payment" button to proceed',
       ],
-      bestPractices: [
-        "[PLACEHOLDER] Always offer receipt to customer",
-        "[PLACEHOLDER] Keep receipt paper stocked and ready",
-        "[PLACEHOLDER] Check receipt quality and readability",
-        "[PLACEHOLDER] Store receipt copies as required by policy"
-      ],
-      tips: [
-        "[PLACEHOLDER] Replace receipt paper before it runs completely out",
-        "[PLACEHOLDER] Keep spare receipt paper rolls nearby",
-        "[PLACEHOLDER] Clean printer head regularly for clear printing"
-      ]
-    }
+    },
   },
   {
     id: 3,
-    title: "Handling Discounts & Promotions",
-    subtitle: "Apply discounts, coupons, and promotional offers correctly",
-    description: "Learn to apply various types of discounts, validate coupons, handle promotional codes, and ensure proper authorization for discounts.",
+    title: 'Select Payment Method & Pay',
+    subtitle: 'Process the payment',
+    description: 'Choose the payment method and complete the transaction.',
     screenshots: [
-      { src: "/screenshots/discount-application.png", alt: "Discount Application Interface" },
-      { src: "/screenshots/coupon-validation.png", alt: "Coupon Validation Process" },
-      { src: "/screenshots/promotion-codes.png", alt: "Promotional Code Entry" }
+      { src: '/screenshots/payment_method.png', alt: 'Payment Processing Interface' },
+      { src: '/screenshots/split_payment.png', alt: 'Payment Processing Interface' },
     ],
     content: {
       process: [
-        "[PLACEHOLDER] Verify discount eligibility and terms",
-        "[PLACEHOLDER] Apply discount using appropriate POS function",
-        "[PLACEHOLDER] Confirm discount amount with customer",
-        "[PLACEHOLDER] Obtain manager approval for large discounts if required",
-        "[PLACEHOLDER] Process payment on discounted total"
+        'Select the payment method: Cash(for now)',
+        'For Cash: Enter the amount received, system calculates change, confirm payment',
+        'Click the "Pay" button to complete the transaction',
+        'If the customer wants to split the payment, click the "Split Payment" button',
+        'Select split method',
+        'Click the "Pay" button to complete the transaction',
       ],
-      bestPractices: [
-        "[PLACEHOLDER] Always verify coupon validity and expiration dates",
-        "[PLACEHOLDER] Explain discount terms clearly to customer",
-        "[PLACEHOLDER] Get manager approval for discounts over policy limits",
-        "[PLACEHOLDER] Document discount reasons in system when required"
-      ],
-      tips: [
-        "[PLACEHOLDER] Learn common discount codes and shortcuts",
-        "[PLACEHOLDER] Keep current promotion information easily accessible",
-        "[PLACEHOLDER] Ask customers about available discounts they may qualify for"
-      ]
-    }
+    },
   },
   {
     id: 4,
-    title: "End-of-Shift Cash Reconciliation",
-    subtitle: "Complete cash counting and reconciliation procedures",
-    description: "Perform end-of-shift cash counting, reconcile transactions, complete required paperwork, and secure cash properly.",
+    title: 'Generate Payment Receipt',
+    subtitle: 'Print and provide the receipt',
+    description: 'Print the payment receipt and provide it to the customer.',
     screenshots: [
-      { src: "/screenshots/cash-reconciliation.png", alt: "Cash Reconciliation Process" },
-      { src: "/screenshots/shift-report.png", alt: "End of Shift Report" },
-      { src: "/screenshots/cash-deposit.png", alt: "Cash Deposit Preparation" }
+      { src: '/screenshots/print_reciept.png', alt: 'Receipt Generation' },
     ],
     content: {
       process: [
-        "[PLACEHOLDER] Count all cash in drawer by denomination",
-        "[PLACEHOLDER] Run end-of-shift report from POS system",
-        "[PLACEHOLDER] Compare cash count to system sales total",
-        "[PLACEHOLDER] Complete cash reconciliation form",
-        "[PLACEHOLDER] Prepare cash deposit and secure remaining cash"
+        'Click "Print Receipt"',
+        'Provide the receipt to the customer',
       ],
-      bestPractices: [
-        "[PLACEHOLDER] Count cash in a secure, private area",
-        "[PLACEHOLDER] Double-check all calculations before submitting",
-        "[PLACEHOLDER] Report any discrepancies immediately to management",
-        "[PLACEHOLDER] Follow proper cash security procedures"
-      ],
-      tips: [
-        "[PLACEHOLDER] Count cash systematically to avoid errors",
-        "[PLACEHOLDER] Keep detailed notes of any unusual transactions",
-        "[PLACEHOLDER] Ensure all paperwork is complete before leaving"
-      ]
-    }
-  }
+    },
+  },
 ];
