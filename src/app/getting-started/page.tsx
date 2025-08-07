@@ -27,9 +27,9 @@ export default function GettingStarted() {
           Blink, as the name suggests, is designed for lightning-fast restaurant operations. It&apos;s an all-in-one restaurant management system that seamlessly integrates POS, kitchen operations, inventory management, and customer service. With its intuitive interface and real-time synchronization, Blink helps streamline your restaurant&apos;s workflow from order taking to payment processing. The system is built with modern web technologies, ensuring responsive performance across all devices and providing a smooth experience for both staff and customers.
         </p>
         <div className="bg-gray-100 dark:bg-gray-800 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center mb-8">
-          <p className="text-gray-500 dark:text-gray-400">
+          <div className="text-gray-500 dark:text-gray-400">
             <ClickableImage src="/screenshots/overview1.png" alt="Blink Overview" width={800} height={400} className="w-full h-auto rounded-lg mb-8" hoverEffect="subtle" />
-          </p>
+          </div>
         </div>
 
         <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
@@ -117,9 +117,9 @@ export default function GettingStarted() {
               <li>You will be redirected to the setting up branch details.</li>
             </ul>
             <div className="bg-gray-100 dark:bg-gray-800 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center mb-8">
-          <p className="text-gray-500 dark:text-gray-400">
+          <div className="text-gray-500 dark:text-gray-400">
             <ClickableImage src="/screenshots/signup.png" alt="Sign Up" width={800} height={400} className="w-full h-auto rounded-lg mb-8" hoverEffect="subtle" />
-          </p>
+          </div>
         </div>
           </div>
 
@@ -135,9 +135,9 @@ export default function GettingStarted() {
               <li>click on the &ldquo;Sign Up&rdquo; button.</li>
             </ul>
             <div className="bg-gray-100 dark:bg-gray-800 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center mb-8">
-          <p className="text-gray-500 dark:text-gray-400">
+          <div className="text-gray-500 dark:text-gray-400">
             <ClickableImage src="/screenshots/branch.png" alt="Branch" width={800} height={400} className="w-full h-auto rounded-lg mb-8" hoverEffect="subtle" />
-          </p>
+          </div>
         </div>
           </div>
 
@@ -153,9 +153,9 @@ export default function GettingStarted() {
             </ul>
           </div>
           <div className="bg-gray-100 dark:bg-gray-800 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center mb-8">
-          <p className="text-gray-500 dark:text-gray-400">
+          <div className="text-gray-500 dark:text-gray-400">
             <ClickableImage src="/screenshots/signup1.png" alt="Branch" width={800} height={400} className="w-full h-auto rounded-lg mb-8" hoverEffect="subtle" />
-          </p>
+          </div>
         </div>
         </div>
         <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
