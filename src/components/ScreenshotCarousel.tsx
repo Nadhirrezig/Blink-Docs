@@ -40,6 +40,28 @@ export function ScreenshotCarousel({ screenshots }: ScreenshotCarouselProps) {
     setIsModalOpen(false);
   }, []);
 
+  // Cleanup effect to close modal when component unmounts
+  useEffect(() => {
+    return () => {
+      if (isModalOpen) {
+        setIsModalOpen(false);
+      }
+    };
+  }, [isModalOpen]);
+
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isModalOpen]);
+
   const nextModalImage = useCallback(() => {
     setModalImageIndex((prev) => (prev + 1) % screenshots.length);
   }, [screenshots.length]);
@@ -48,13 +70,15 @@ export function ScreenshotCarousel({ screenshots }: ScreenshotCarouselProps) {
     setModalImageIndex((prev) => (prev - 1 + screenshots.length) % screenshots.length);
   }, [screenshots.length]);
 
-  // Keyboard navigation
+  // klavier
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
+      // Only handle keyboard 
       if (isModalOpen) {
         switch (event.key) {
           case 'Escape':
             event.preventDefault();
+            event.stopPropagation(); // Prevent
             closeModal();
             break;
           case 'ArrowLeft':
@@ -71,6 +95,7 @@ export function ScreenshotCarousel({ screenshots }: ScreenshotCarouselProps) {
             break;
         }
       } else if (screenshots.length > 1) {
+        // Only handle carousel navigation if modal is not open
         switch (event.key) {
           case 'ArrowLeft':
             event.preventDefault();
@@ -92,7 +117,7 @@ export function ScreenshotCarousel({ screenshots }: ScreenshotCarouselProps) {
     return (
       <div className="bg-gray-100 dark:bg-gray-800 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center">
         <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base">
-          Add screenshots here to show the process
+          No screenshots for this carousel Yet..
         </p>
       </div>
     );
@@ -100,22 +125,60 @@ export function ScreenshotCarousel({ screenshots }: ScreenshotCarouselProps) {
 
   if (screenshots.length === 1) {
     return (
-      <div className="space-y-4">
-        <div className="bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 md:p-6">
-          <div
-            className="cursor-pointer transition-transform hover:scale-[1.02] active:scale-[0.98]"
-            onClick={() => openModal(0)}
-          >
-            <Image
-              src={screenshots[0].src}
-              alt={screenshots[0].alt}
-              width={800}
-              height={400}
-              className="w-full h-auto rounded-lg"
-            />
+      <>
+        <div className="space-y-4">
+          <div className="bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 md:p-6">
+            <div
+              className="cursor-pointer transition-transform hover:scale-[1.02] active:scale-[0.98]"
+              onClick={() => openModal(0)}
+            >
+              <Image
+                src={screenshots[0].src}
+                alt={screenshots[0].alt}
+                width={800}
+                height={400}
+                className="w-full h-auto rounded-lg"
+              />
+            </div>
           </div>
         </div>
-      </div>
+
+        {/* Modal for single image */}
+        {isModalOpen && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[60] p-4 modal-backdrop"
+            onClick={closeModal}
+          >
+            <div className="relative max-w-7xl max-h-full w-full h-full flex items-center justify-center">
+              {/* Close Button */}
+              <button
+                onClick={closeModal}
+                className="absolute top-4 right-4 z-10 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 hover:scale-110 transition-all duration-200 modal-controls"
+                aria-label="Close modal"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+
+              {/* Modal Image */}
+              <div
+                className="relative max-w-full max-h-full modal-content"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <Image
+                  src={screenshots[0].src}
+                  alt={screenshots[0].alt}
+                  width={1200}
+                  height={800}
+                  className="max-w-full max-h-[90vh] w-auto h-auto object-contain rounded-lg shadow-2xl"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
+        )}
+      </>
     );
   }
 
@@ -195,7 +258,7 @@ export function ScreenshotCarousel({ screenshots }: ScreenshotCarouselProps) {
       {/* Modal/Lightbox */}
       {isModalOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-4 modal-backdrop"
+          className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[60] p-4 modal-backdrop"
           onClick={closeModal}
         >
           <div className="relative max-w-7xl max-h-full w-full h-full flex items-center justify-center">

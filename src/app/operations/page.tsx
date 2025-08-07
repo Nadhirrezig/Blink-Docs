@@ -155,28 +155,28 @@ export default function OperationsGuide() {
             <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
               <div className="flex items-center mb-2">
                 <BookOpen className="w-5 h-5 text-blue-500 mr-2" />
-                <h3 className="font-semibold text-gray-900 dark:text-white">Quick Reference</h3>
+                <h3 className="font-semibold text-gray-900 dark:text-white">Quick Start</h3>
               </div>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                [PLACEHOLDER] Printable cheat sheets and quick reference guides
+                For best results, follow this practical guide. It includes everything you need to handle operations with confidence.
               </p>
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
               <div className="flex items-center mb-2">
                 <Phone className="w-5 h-5 text-red-500 mr-2" />
-                <h3 className="font-semibold text-gray-900 dark:text-white">Emergency Contacts</h3>
+                <h3 className="font-semibold text-gray-900 dark:text-white">Support & Escalation</h3>
               </div>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                [PLACEHOLDER] Important numbers and escalation procedures
+                Our team is always ready to support you. If you need help, don’t hesitate to reach out.
               </p>
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
               <div className="flex items-center mb-2">
                 <ClipboardList className="w-5 h-5 text-green-500 mr-2" />
-                <h3 className="font-semibold text-gray-900 dark:text-white">Training Checklist</h3>
+                <h3 className="font-semibold text-gray-900 dark:text-white">Operations Walkthrough</h3>
               </div>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                [PLACEHOLDER] Track your progress through all operation modules
+                Explore the logic, tools, and sequence behind Blink’s operational flow.
               </p>
             </div>
           </div>
