@@ -115,39 +115,39 @@ export default function StatsSection() {
   }, []);
 
   return (
-    <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-900/20">
+    <section className="py-12 sm:py-16 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-900/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Modularity Message */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 px-2">
             Modular, Specialized for Hospitality
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Blink follows modular approach, but is specifically designed for the hospitality industry. 
-            Start with just the modules you need today, and seamlessly add more as your business grows. 
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed px-4">
+            Blink follows modular approach, but is specifically designed for the hospitality industry.
+            Start with just the modules you need today, and seamlessly add more as your business grows.
             Whether you&apos;re a small café or a large restaurant chain, Blink adapts to your needs.
           </p>
         </div>
 
         {/* Feature Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className={`bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 ${
+              className={`bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 ${
                 animateStats ? 'animate-fade-in' : 'opacity-0'
               }`}
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="flex items-center justify-center w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg mb-4">
+              <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg mb-3 sm:mb-4">
                 <div className="text-blue-600 dark:text-blue-400">
                   {stat.icon}
                 </div>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+              <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-2 break-words">
                 {stat.title}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm leading-relaxed break-words">
                 {stat.description}
               </p>
             </div>
@@ -155,23 +155,23 @@ export default function StatsSection() {
         </div>
 
         {/* Modular Features Grid */}
-        <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 sm:p-6 lg:p-8 shadow-xl">
+          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8 text-center">
             Available Modules
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {modularFeatures.map((category, index) => (
-              <div key={index} className="space-y-4">
-                <h4 className="text-lg font-semibold text-blue-600 dark:text-blue-400 border-b border-blue-200 dark:border-blue-800 pb-2">
+              <div key={index} className="space-y-3 sm:space-y-4">
+                <h4 className="text-base sm:text-lg font-semibold text-blue-600 dark:text-blue-400 border-b border-blue-200 dark:border-blue-800 pb-2 break-words">
                   {category.category}
                 </h4>
                 <ul className="space-y-2">
                   {category.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-sm text-gray-600 dark:text-gray-400">
-                      <svg className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <li key={featureIndex} className="flex items-start text-sm text-gray-600 dark:text-gray-400">
+                      <svg className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      {feature}
+                      <span className="break-words">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -180,18 +180,18 @@ export default function StatsSection() {
           </div>
           
           {/* Call to Action */}
-          <div className="mt-8 text-center">
-            <p className="text-gray-600 dark:text-gray-400 mb-4">
+          <div className="mt-6 sm:mt-8 text-center">
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-4 px-2">
               Start with any combination of modules and scale as you grow
             </p>
-            <div className="flex flex-wrap justify-center gap-4 text-sm">
-              <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-4 text-xs sm:text-sm px-2">
+              <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 px-2 sm:px-3 py-1 rounded-full whitespace-nowrap">
                 Pay only for what you use
               </span>
-              <span className="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 px-3 py-1 rounded-full">
+              <span className="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 px-2 sm:px-3 py-1 rounded-full whitespace-nowrap">
                 Easy module activation
               </span>
-              <span className="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full">
+              <span className="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200 px-2 sm:px-3 py-1 rounded-full whitespace-nowrap">
                 Seamless integration
               </span>
             </div>

@@ -20,7 +20,6 @@ export default function BlinkFooter() {
             alt="Blink Logo"
             width={24}
             height={24}
-            className="rounded"
             hoverEffect="subtle"
           />
           <span className="text-sm font-medium text-gray-700 dark:text-gray-300">

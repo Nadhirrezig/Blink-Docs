@@ -62,7 +62,7 @@ export default function LoadingSpinner({ onComplete, delay = 2000 }: LoadingSpin
             alt="Blink Logo"
             width={80}
             height={80}
-            className="mx-auto rounded-xl shadow-lg animate-pulse"
+            className="mx-auto animate-pulse"
             hoverEffect="subtle"
           />
         </div>

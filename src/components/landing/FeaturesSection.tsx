@@ -120,40 +120,40 @@ const colorClasses = {
 
 export default function FeaturesSection() {
   return (
-    <section className="py-20 bg-white dark:bg-gray-900">
+    <section className="py-12 sm:py-16 lg:py-20 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4 px-2">
             Complete Management Solution
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Blink provides everything your venue needs for efficient operations. 
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4">
+            Blink provides everything your venue needs for efficient operations.
             Explore our comprehensive modules designed for modern restaurant management.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {features.map((feature, index) => {
             const colors = colorClasses[feature.color as keyof typeof colorClasses];
             return (
               <Link
                 key={index}
                 href={feature.link}
-                className={`group block p-8 rounded-2xl border-2 ${colors.border} ${colors.bg} ${colors.hover} transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl`}
+                className={`group block p-4 sm:p-6 lg:p-8 rounded-2xl border-2 ${colors.border} ${colors.bg} ${colors.hover} transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl`}
               >
-                <div className={`inline-flex p-3 rounded-xl ${colors.text} bg-white dark:bg-gray-800 shadow-md mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`inline-flex p-2 sm:p-3 rounded-xl ${colors.text} bg-white dark:bg-gray-800 shadow-md mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300`}>
                   {feature.icon}
                 </div>
-                
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors break-words">
                   {feature.title}
                 </h3>
-                
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed mb-3 sm:mb-4 break-words">
                   {feature.description}
                 </p>
-                
-                <div className="flex items-center text-blue-600 dark:text-blue-400 font-semibold group-hover:translate-x-2 transition-transform duration-300">
+
+                <div className="flex items-center text-blue-600 dark:text-blue-400 font-semibold group-hover:translate-x-2 transition-transform duration-300 text-sm sm:text-base">
                   Learn More
                   <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

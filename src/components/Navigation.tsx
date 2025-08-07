@@ -15,8 +15,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
 import { navigationStructure, NavigationItem } from '@/data/navigation';
 import LanguageSwitcher from './LanguageSwitcher';
-import { ClickableImage } from './ClickableImage';
-
+import Image from 'next/image';
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [expandedSections, setExpandedSections] = useState<string[]>([]);
@@ -130,13 +129,12 @@ export default function Navigation() {
             onClick={closeMobileMenu}
           >
             <div className="flex items-center space-x-3 mb-2">
-              <ClickableImage
+              <Image
                 src="/logo1.png"
                 alt="Blink Logo"
                 width={40}
                 height={40}
-                className="rounded-lg"
-                hoverEffect="subtle"
+
               />
               <div>
                 <h1 className="text-xl font-bold text-gray-900 dark:text-white">
@@ -197,9 +195,12 @@ export default function Navigation() {
                       <button
                         onClick={(e) => {
                           e.preventDefault();
+                          e.stopPropagation();
                           toggleSection(item.title);
                         }}
-                        className="p-1 hover:bg-gray-200 dark:hover:bg-gray-700 rounded"
+                        className="p-1 hover:bg-gray-200 dark:hover:bg-gray-700 rounded transition-colors duration-200"
+                        aria-label={`${expandedSections.includes(item.title) ? 'Collapse' : 'Expand'} ${item.title} section`}
+                        aria-expanded={expandedSections.includes(item.title)}
                       >
                         <svg
                           className={`w-4 h-4 text-gray-500 dark:text-gray-400 transition-transform ${
