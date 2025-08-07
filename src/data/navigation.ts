@@ -28,6 +28,7 @@ export const navigationStructure: NavigationItem[] = [
       { title: 'Basic Information', href: '/admin/basic-information' },
       { title: 'Menu Management', href: '/admin/menu-management' },
       { title: 'Staff Roles & Permissions', href: '/admin/staff-roles' },
+      { title: 'Customer Site & Permissions', href:'/admin/customer-managment'},
       { title: 'Payment Configuration', href: '/admin/payment-configuration' },
       { title: 'Reports & Analytics', href: '/admin/reports-analytics' },
     ],
@@ -39,7 +40,6 @@ export const navigationStructure: NavigationItem[] = [
       { title: 'POS Operations', href: '/operations/pos-operations' },
       { title: 'Payment Processing', href: '/operations/payment-processing' },
       { title: 'Table Management', href: '/operations/table-management' },
-      { title: 'Customer Service', href: '/operations/customer-service' },
     ],
   },
   {

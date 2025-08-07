@@ -13,154 +13,99 @@ import { MenuStep } from '@/types/menu';
 export const customerServiceSteps: MenuStep[] = [
   {
     id: 0,
-    title: "Customer Interaction Guidelines",
-    subtitle: "Professional communication and service standards",
-    description: "Master the fundamentals of professional customer interaction, including greeting customers, active listening, and maintaining positive communication throughout the service experience.",
+    title: "Customer Order Settings",
+    subtitle: "Control How Customers Place Orders",
+    description: "Easily enable or disable customer ordering, allow dine-in, pickup, or delivery, and manage tipping options. Fine-tune the customer experience to match your business needs.",
     screenshots: [
-      { src: "/screenshots/customer-greeting.png", alt: "Customer Greeting Best Practices" },
-      { src: "/screenshots/active-listening.png", alt: "Active Listening Techniques" }
+      { src: "/screenshots/customer_order.png", alt: "Order Settings Panel" }
     ],
     content: {
       process: [
-        "[PLACEHOLDER] Greet customers warmly within 30 seconds of arrival",
-        "[PLACEHOLDER] Make eye contact and use welcoming body language",
-        "[PLACEHOLDER] Listen actively to customer needs and requests",
-        "[PLACEHOLDER] Speak clearly and at appropriate volume",
-        "[PLACEHOLDER] Thank customers and invite them to return"
-      ],
-      bestPractices: [
-        "[PLACEHOLDER] Use positive language even when delivering difficult news",
-        "[PLACEHOLDER] Remain calm and professional in all interactions",
-        "[PLACEHOLDER] Show empathy and understanding for customer concerns",
-        "[PLACEHOLDER] Follow up to ensure customer satisfaction"
+        "Toggle whether customers can place orders from your website.",
+        "Enable or disable dine-in, pickup, and delivery order types.",
+        "Allow customers to add a tip during checkout, or disable tipping.",
+        "Set orders to auto-confirm or require manual approval."
       ],
       tips: [
-        "[PLACEHOLDER] Smile genuinely - customers can hear it in your voice",
-        "[PLACEHOLDER] Use customer names when possible to personalize service",
-        "[PLACEHOLDER] Ask open-ended questions to better understand needs"
+        "Disable order types you don't offer to avoid confusion.",
+        "Enable auto-confirm for faster service, or manual for more control."
       ]
     }
   },
   {
     id: 1,
-    title: "Complaint Handling & Resolution",
-    subtitle: "Turn customer complaints into positive experiences",
-    description: "Learn the systematic approach to handling customer complaints, from initial listening through resolution, ensuring customer satisfaction and loyalty.",
+    title: "Call Waiter Settings",
+    subtitle: "Empower Guests to Request Service",
+    description: "Let customers call a waiter from their table using their phone. Choose where and when this feature is available for maximum flexibility.",
     screenshots: [
-      { src: "/screenshots/complaint-process.png", alt: "Complaint Resolution Process" },
-      { src: "/screenshots/customer-feedback.png", alt: "Customer Feedback Documentation" }
+      { src: "/screenshots/customer_waiter.png", alt: "Call Waiter Feature" }
     ],
     content: {
       process: [
-        "[PLACEHOLDER] Listen to the complete complaint without interrupting",
-        "[PLACEHOLDER] Acknowledge the customer's feelings and apologize for inconvenience",
-        "[PLACEHOLDER] Ask clarifying questions to fully understand the issue",
-        "[PLACEHOLDER] Offer appropriate solutions or alternatives",
-        "[PLACEHOLDER] Follow up to ensure the resolution was satisfactory"
-      ],
-      bestPractices: [
-        "[PLACEHOLDER] Stay calm and avoid taking complaints personally",
-        "[PLACEHOLDER] Focus on finding solutions rather than assigning blame",
-        "[PLACEHOLDER] Escalate to management when necessary",
-        "[PLACEHOLDER] Document complaints for future improvement"
+        "Enable or disable the 'Call Waiter' button on the customer site.",
+        "Restrict the feature to mobile, desktop, or only when accessed via QR code."
       ],
       tips: [
-        "[PLACEHOLDER] Use phrases like 'I understand' and 'Let me help you'",
-        "[PLACEHOLDER] Offer multiple solutions when possible",
-        "[PLACEHOLDER] Turn complaints into opportunities to exceed expectations"
+        "Limiting to QR code ensures only in-venue guests can call a waiter.",
+        "Disable on desktop if you want to encourage mobile/tablet use."
       ]
     }
   },
   {
     id: 2,
-    title: "Refund & Void Procedures",
-    subtitle: "Process refunds and voids accurately and efficiently",
-    description: "Handle refund requests, void transactions, and process returns while following proper authorization procedures and maintaining accurate records.",
+    title: "Dine-In Table Selection",
+    subtitle: "Require Table Selection for Dine-In",
+    description: "Ask customers to select their table when placing a dine-in order, ensuring accurate service and order delivery.",
     screenshots: [
-      { src: "/screenshots/refund-process.png", alt: "Refund Processing Interface" },
-      { src: "/screenshots/void-transaction.png", alt: "Transaction Void Process" },
-      { src: "/screenshots/manager-approval.png", alt: "Manager Approval System" }
+      { src: "/screenshots/customer_dinein1.png", alt: "Table Selection" },
+      { src: "/screenshots/customer_dinein2.png", alt: "dropdown menu selection" },
     ],
     content: {
       process: [
-        "[PLACEHOLDER] Verify the reason for refund and check return policy",
-        "[PLACEHOLDER] Obtain manager approval for refunds over policy limits",
-        "[PLACEHOLDER] Process refund through POS system",
-        "[PLACEHOLDER] Count and return cash or process card refund",
-        "[PLACEHOLDER] Provide refund receipt and document transaction"
-      ],
-      bestPractices: [
-        "[PLACEHOLDER] Always check ID for large cash refunds",
-        "[PLACEHOLDER] Explain refund policy clearly to customers",
-        "[PLACEHOLDER] Get proper authorization before processing",
-        "[PLACEHOLDER] Keep detailed records of all refund transactions"
+        "Enable the setting to require table selection for dine-in orders.",
+        "Customers will be prompted to choose their table before ordering."
       ],
       tips: [
-        "[PLACEHOLDER] Know your refund policy limits and requirements",
-        "[PLACEHOLDER] Be empathetic while following company policies",
-        "[PLACEHOLDER] Offer alternatives like store credit when appropriate"
+        "This helps staff deliver orders to the correct table efficiently."
       ]
     }
   },
   {
     id: 3,
-    title: "Handling Special Dietary Needs",
-    subtitle: "Manage allergies, dietary restrictions, and special requests",
-    description: "Safely handle customer allergies, dietary restrictions, and special dietary needs while ensuring proper communication with kitchen staff.",
+    title: "Reservation Status & Time Settings",
+    subtitle: "Customize Reservation Experience",
+    description: "Let customers select reservation status, set available times, and manage cancellation reasons for a seamless booking process.",
     screenshots: [
-      { src: "/screenshots/allergy-protocol.png", alt: "Allergy Handling Protocol" },
-      { src: "/screenshots/dietary-restrictions.png", alt: "Dietary Restrictions Menu" },
-      { src: "/screenshots/kitchen-communication.png", alt: "Kitchen Communication System" }
+      { src: "/screenshots/customer_reserve.png", alt: "Reservation Settings" }
     ],
     content: {
       process: [
-        "[PLACEHOLDER] Ask about allergies and dietary restrictions when taking orders",
-        "[PLACEHOLDER] Clearly mark allergy alerts on order tickets",
-        "[PLACEHOLDER] Communicate special dietary needs to kitchen staff",
-        "[PLACEHOLDER] Verify ingredients and preparation methods when uncertain",
-        "[PLACEHOLDER] Double-check orders before serving to customers with allergies"
-      ],
-      bestPractices: [
-        "[PLACEHOLDER] Take all allergy concerns seriously, no matter how minor",
-        "[PLACEHOLDER] Never guess about ingredients - always verify",
-        "[PLACEHOLDER] Use separate preparation areas for severe allergies when possible",
-        "[PLACEHOLDER] Keep updated allergen information easily accessible"
+        "Add or edit reservation statuses using the dropdown component.",
+        "Set available reservation times to match your business hours.",
+        "Manage cancellation reasons (add, edit, delete) for better tracking."
       ],
       tips: [
-        "[PLACEHOLDER] Learn common allergens and which menu items contain them",
-        "[PLACEHOLDER] Suggest safe alternatives for customers with restrictions",
-        "[PLACEHOLDER] Maintain clear communication chain from order to kitchen to service"
+        "Clear cancellation reasons help you improve your service."
       ]
     }
   },
   {
     id: 4,
-    title: "Emergency Procedures & Crisis Management",
-    subtitle: "Handle emergencies and crisis situations professionally",
-    description: "Respond appropriately to various emergency situations including medical emergencies, accidents, and security issues while ensuring customer and staff safety.",
+    title: "Social Media & About Us",
+    subtitle: "Showcase Your Brand",
+    description: "Add your social media links and a custom 'About Us' section to your customer site, building trust and engagement.",
     screenshots: [
-      { src: "/screenshots/emergency-contacts.png", alt: "Emergency Contact Information" },
-      { src: "/screenshots/incident-report.png", alt: "Incident Report Form" },
-      { src: "/screenshots/first-aid.png", alt: "Basic First Aid Procedures" }
+      { src: "/screenshots/customer_social.png", alt: "Social Media Links" },
+      { src: "/screenshots/customer_about.png", alt: "About us" },
     ],
     content: {
       process: [
-        "[PLACEHOLDER] Assess the situation quickly and ensure immediate safety",
-        "[PLACEHOLDER] Call appropriate emergency services (911, poison control, etc.)",
-        "[PLACEHOLDER] Notify management immediately of any emergency",
-        "[PLACEHOLDER] Provide basic first aid if trained and safe to do so",
-        "[PLACEHOLDER] Document incident thoroughly after situation is resolved"
-      ],
-      bestPractices: [
-        "[PLACEHOLDER] Stay calm and think clearly during emergencies",
-        "[PLACEHOLDER] Prioritize safety of customers and staff above all else",
-        "[PLACEHOLDER] Follow established emergency protocols exactly",
-        "[PLACEHOLDER] Keep emergency contact numbers easily accessible"
+        "Add links to your Facebook, Instagram, Twitter, and more.",
+        "Write a compelling 'About Us' to introduce your venue to customers."
       ],
       tips: [
-        "[PLACEHOLDER] Know location of first aid kit and emergency exits",
-        "[PLACEHOLDER] Practice emergency scenarios during training",
-        "[PLACEHOLDER] Never hesitate to call for help when in doubt"
+        "Keep your social links updated to grow your online presence.",
+        "A friendly 'About Us' builds customer trust and loyalty."
       ]
     }
   }
