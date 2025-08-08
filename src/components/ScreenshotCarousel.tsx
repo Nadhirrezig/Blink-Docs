@@ -128,17 +128,21 @@ export function ScreenshotCarousel({ screenshots }: ScreenshotCarouselProps) {
       <>
         <div className="space-y-4">
           <div className="bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 md:p-6">
-            <div
-              className="cursor-pointer transition-transform hover:scale-[1.02] active:scale-[0.98]"
-              onClick={() => openModal(0)}
-            >
-              <Image
-                src={screenshots[0].src}
-                alt={screenshots[0].alt}
-                width={800}
-                height={400}
-                className="w-full h-auto rounded-lg"
-              />
+            <div className="flex justify-center">
+              <div className="max-w-sm mx-auto">
+                <div
+                  className="cursor-pointer transition-transform hover:scale-[1.02] active:scale-[0.98]"
+                  onClick={() => openModal(0)}
+                >
+                  <Image
+                    src={screenshots[0].src}
+                    alt={screenshots[0].alt}
+                    width={400}
+                    height={800}
+                    className="w-full h-auto rounded-lg object-contain"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -186,17 +190,21 @@ export function ScreenshotCarousel({ screenshots }: ScreenshotCarouselProps) {
     <div className="space-y-4">
       {/* Main Image */}
       <div className="relative bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 md:p-6">
-        <div
-          className="cursor-pointer transition-transform hover:scale-[1.02] active:scale-[0.98]"
-          onClick={() => openModal(currentImage)}
-        >
-          <Image
-            src={screenshots[currentImage].src}
-            alt={screenshots[currentImage].alt}
-            width={800}
-            height={400}
-            className="w-full h-auto rounded-lg"
-          />
+        <div className="flex justify-center">
+          <div className="max-w-sm mx-auto">
+            <div
+              className="cursor-pointer transition-transform hover:scale-[1.02] active:scale-[0.98]"
+              onClick={() => openModal(currentImage)}
+            >
+              <Image
+                src={screenshots[currentImage].src}
+                alt={screenshots[currentImage].alt}
+                width={400}
+                height={800}
+                className="w-full h-auto rounded-lg object-contain"
+              />
+            </div>
+          </div>
         </div>
         
         {/* Navigation Arrows */}

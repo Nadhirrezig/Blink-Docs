@@ -27,6 +27,7 @@ export interface StepContent {
   securityFeatures?: string[];
   roleUpdates?: string[];
   staffUpdates?: string[];
+  features?: string[];
 }
 
 export interface Screenshot {
