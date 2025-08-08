@@ -14,25 +14,15 @@ export const accountManagementSteps: MenuStep[] = [
     subtitle: "Update your personal details and preferences",
     description: "Manage your personal information, contact details, and account preferences. Keep your profile up-to-date for the best ordering experience.",
     screenshots: [
-      { src: "/screenshots/account-profile.png", alt: "Account profile management" },
-      { src: "/screenshots/personal-info.png", alt: "Personal information form" }
+      { src: "/screenshots/access_profile.jpg", alt: "Account profile management" },
+      { src: "/screenshots/profile_info.jpg", alt: "Personal information form" }
     ],
     content: {
       process: [
         "Access your account settings from the profile menu",
         "Update personal information (name, email, phone)",
-        "Set dietary preferences and allergies",
-        "Configure notification preferences",
-        "Update password and security settings",
         "Save changes to apply updates"
       ],
-      features: [
-        "Personal information editing",
-        "Dietary preference settings",
-        "Notification controls",
-        "Password management",
-        "Account security options"
-      ]
     }
   },
   {
@@ -41,8 +31,8 @@ export const accountManagementSteps: MenuStep[] = [
     subtitle: "Manage your saved addresses",
     description: "Add, edit, and organize your saved addresses for faster ordering. Set default addresses and manage multiple locations for convenient ordering.",
     screenshots: [
-      { src: "/screenshots/address-management.png", alt: "Address management interface" },
-      { src: "/screenshots/add-address.png", alt: "Add new address form" }
+      { src: "/screenshots/access_address.jpg", alt: "Address management interface" },
+      { src: "/screenshots/adress_customer.jpg", alt: "Add new address form" }
     ],
     content: {
       process: [
@@ -51,12 +41,9 @@ export const accountManagementSteps: MenuStep[] = [
         "Set a default address for quick ordering",
         "Edit existing addresses as needed",
         "Delete outdated or unused addresses",
-        "Organize addresses by type (home, work, etc.)"
       ],
       tips: [
         "Keep addresses current for accurate service",
-        "Add delivery instructions for each address",
-        "Set your most-used address as default"
       ]
     }
   },
@@ -66,8 +53,8 @@ export const accountManagementSteps: MenuStep[] = [
     subtitle: "View and manage your past orders",
     description: "Access your complete order history, reorder favorite meals, track past purchases, and manage receipts. Your ordering history helps you discover patterns and reorder easily.",
     screenshots: [
-      { src: "/screenshots/order-history.png", alt: "Order history interface" },
-      { src: "/screenshots/order-details.png", alt: "Individual order details" }
+      { src: "/screenshots/access_orders.jpg", alt: "Order history interface" },
+      { src: "/screenshots/order_customer.jpg", alt: "Individual order details" }
     ],
     content: {
       process: [
@@ -93,24 +80,15 @@ export const accountManagementSteps: MenuStep[] = [
     subtitle: "Manage your table reservations",
     description: "View upcoming reservations, modify booking details, and track your reservation history. Stay organized with all your dining plans in one place.",
     screenshots: [
-      { src: "/screenshots/bookings-overview.png", alt: "Bookings overview interface" },
-      { src: "/screenshots/reservation-details.png", alt: "Reservation details view" }
+      { src: "/screenshots/access_booking.jpg", alt: "Bookings overview interface" },
+      { src: "/screenshots/reservation_list_customer.jpg", alt: "Reservation details view" }
     ],
     content: {
       process: [
         "Access 'My Bookings' from your account dashboard",
         "View upcoming reservations with details",
-        "Modify reservation times or party size",
-        "Cancel reservations if plans change",
         "View past reservation history",
-        "Add special requests to existing bookings"
       ],
-      workflow: [
-        "Upcoming reservations displayed prominently",
-        "Easy modification options available",
-        "Cancellation policies clearly stated",
-        "History tracking for reference"
-      ]
     }
   },
   {
@@ -119,27 +97,14 @@ export const accountManagementSteps: MenuStep[] = [
     subtitle: "Securely sign out of your account",
     description: "Safely log out of your account to protect your personal information, especially when using shared devices. Learn about session management and security best practices.",
     screenshots: [
-      { src: "/screenshots/logout-process.png", alt: "Logout confirmation screen" }
+      { src: "/screenshots/logout.jpg", alt: "Logout confirmation screen" }
     ],
     content: {
       process: [
         "Locate the logout option in your account menu",
         "Confirm logout action if prompted",
-        "Ensure all personal data is cleared from device",
-        "Return to login screen or homepage",
         "Verify successful logout completion"
       ],
-      securityFeatures: [
-        "Automatic session timeout for security",
-        "Clear browsing data option",
-        "Secure logout confirmation",
-        "Session management across devices"
-      ],
-      bestPractices: [
-        "Always logout on shared computers",
-        "Use logout when finished ordering",
-        "Check for successful logout confirmation"
-      ]
     }
   }
 ];

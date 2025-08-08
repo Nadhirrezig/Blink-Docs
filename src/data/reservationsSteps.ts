@@ -14,25 +14,17 @@ export const reservationsSteps: MenuStep[] = [
     subtitle: "Sign in to access reservation system",
     description: "Before making a reservation, you'll need to log in to your Blink account. This ensures we can save your booking details and send you important updates.",
     screenshots: [
-      { src: "/screenshots/login-screen.png", alt: "Login interface for reservations" },
-      { src: "/screenshots/account-creation.png", alt: "Account creation process" }
+      { src: "/screenshots/reservation_customer.jpg", alt: "Login interface for reservations" },
+      { src: "/screenshots/login_customer.jpg", alt: "Login interface for reservations" },
     ],
     content: {
       process: [
         "Navigate to the reservations section",
         "Click 'Sign In' or 'Create Account' if you're new",
         "Enter your email and password",
-        "Complete account verification if required",
         "Access the reservation booking system"
       ],
-      required: [
-        "Valid email address",
-        "Secure password",
-        "Phone number for booking confirmations",
-        "Basic personal information"
-      ],
       tips: [
-        "Create an account for faster future bookings",
         "Use a valid email for reservation confirmations",
         "Keep your contact information up-to-date"
       ]
@@ -44,9 +36,8 @@ export const reservationsSteps: MenuStep[] = [
     subtitle: "Choose your preferred dining time and special requirements",
     description: "Browse available time slots, select your party size, and add any special requirements for your dining experience. Our system shows real-time availability.",
     screenshots: [
-      { src: "/screenshots/time-selection.png", alt: "Time slot selection interface" },
-      { src: "/screenshots/party-size.png", alt: "Party size and options selection" },
-      { src: "/screenshots/special-requests.png", alt: "Special requests form" }
+      { src: "/screenshots/reservation_options.jpg", alt: "selecting options" },
+      { src: "/screenshots/loggedin_customer.jpg", alt: "Time slot selection interface" },
     ],
     content: {
       process: [
@@ -77,28 +68,16 @@ export const reservationsSteps: MenuStep[] = [
     subtitle: "Review and finalize your booking details",
     description: "Review all reservation details, confirm the information is correct, and submit your booking. You'll receive a confirmation with all the important details.",
     screenshots: [
-      { src: "/screenshots/reservation-review.png", alt: "Reservation review screen" },
-      { src: "/screenshots/confirmation.png", alt: "Booking confirmation" }
+      { src: "/screenshots/confirm_reservation.jpg", alt: "Booking confirmation" }
     ],
     content: {
       process: [
-        "Review all reservation details carefully",
-        "Verify date, time, and party size",
-        "Check contact information is correct",
-        "Read and accept cancellation policy",
         "Submit reservation request",
-        "Receive confirmation email with booking details"
-      ],
-      workflow: [
-        "Instant confirmation for most bookings",
-        "Email confirmation sent immediately",
-        "SMS reminder sent day before (if enabled)",
-        "Booking reference number provided"
+        "Track your reservation from Booking/reservations"
       ],
       bestPractices: [
         "Double-check all details before confirming",
         "Save confirmation email for reference",
-        "Note the cancellation policy terms"
       ]
     }
   },
@@ -108,32 +87,17 @@ export const reservationsSteps: MenuStep[] = [
     subtitle: "Monitor and manage your reservation",
     description: "Access your reservation details anytime through 'My Bookings'. View upcoming reservations, make changes if needed, and track your booking history.",
     screenshots: [
-      { src: "/screenshots/my-bookings.png", alt: "My bookings dashboard" },
-      { src: "/screenshots/booking-details.png", alt: "Individual booking details" },
-      { src: "/screenshots/modify-booking.png", alt: "Modify reservation interface" }
+
+      { src: "/screenshots/access_booking.jpg", alt: "Access bookings" },
+      { src: "/screenshots/reservation_list_customer.jpg", alt: "My bookings dashboard" },
     ],
     content: {
       process: [
         "Access 'My Bookings' from your account menu",
         "View all upcoming reservations",
         "Click on a booking to see full details",
-        "Modify reservation if changes are needed",
-        "Cancel booking if plans change",
         "View past reservation history"
       ],
-      features: [
-        "Real-time booking status updates",
-        "Easy modification options",
-        "Cancellation with policy compliance",
-        "Booking history tracking",
-        "Special request management"
-      ],
-      notifications: [
-        "Booking confirmation emails",
-        "Reminder notifications",
-        "Modification confirmations",
-        "Cancellation receipts"
-      ]
     }
   }
 ];
