@@ -12,7 +12,7 @@ export default function Calltoaction(){
               Ready to Experience the Future of Dining?
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
-              Join thousands of satisfied customers who have discovered the convenience, 
+              Join customers who have discovered the convenience, 
               speed, and personalization that Blink brings to every dining experience.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -35,18 +35,6 @@ export default function BlinkFooter() {
             © 2024 Blink. All rights reserved.
           </p>
         </div>
-        
-        <div className="flex space-x-6 text-xs text-gray-500 dark:text-gray-400">
-          <a href="#" className="hover:text-gray-700 dark:hover:text-gray-300 transition-colors">
-            Support
-          </a>
-          <a href="#" className="hover:text-gray-700 dark:hover:text-gray-300 transition-colors">
-            Documentation
-          </a>
-          <a href="#" className="hover:text-gray-700 dark:hover:text-gray-300 transition-colors">
-            Contact
-          </a>
-        </div>
       </div>
     </footer>
   );

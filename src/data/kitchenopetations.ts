@@ -30,7 +30,7 @@ export const kitchenopetations: MenuStep[] = [
   },
   {
     id: 1,
-    title: "food is ready",
+    title: "Food is ready",
     subtitle: "food is ready to serve",
     description: "Master the kitchen dashboard, and start serving the order.",
     screenshots: [

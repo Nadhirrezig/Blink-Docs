@@ -30,7 +30,7 @@ const features = [
     ),
     title: "Staff Operations",
     description: "Streamlined POS system, payment processing, table management, and customer service tools.",
-    link: "/staff",
+    link: "/operations",
     color: "green"
   },
   {
